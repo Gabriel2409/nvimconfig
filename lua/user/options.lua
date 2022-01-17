@@ -42,6 +42,11 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd[[
+let g:neoformat_enabled_python = ['black']
+]]
+
+
 -- vim.cmd "set whichwrap+=<,>,[,],h,l"
 -- vim.cmd [[set iskeyword+=-]]
 -- vim.cmd [[set formatoptions-=cro]] 

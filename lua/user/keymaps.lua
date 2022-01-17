@@ -23,6 +23,9 @@ vim.g.maplocalleader = " "
 keymap('n','<A-k>', ':m.-2<CR>', opts)
 keymap('n','<A-j>', ':m.+1<CR>', opts)
 
+-- keep previous yank when pasting over a text in visual mode
+keymap("v", "p", '"_dP', opts)
+
 -- ctrl s to save
 keymap('n', '<c-s>', ':w<CR>', {})
 keymap('i', '<c-s>', '<esc>:w<CR>a', {})
@@ -31,26 +34,31 @@ keymap('i', '<c-s>', '<esc>:w<CR>a', {})
 keymap("i", "<c-z>", "<Nop>", opts)
 keymap("n", "<c-z>", "<Nop>", opts)
 keymap("v", "<c-z>", "<Nop>", opts)
+
 -- switch pane with ctrl hjkl
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
 keymap('n', '<c-h>', '<c-w>h', opts)
 keymap('n', '<c-l>', '<c-w>l', opts)
 
+-- resize panes with arrow keys
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
 -- stay in visual mode on indent
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 
--- Resize with arrows
- -- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
- -- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
- -- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
- -- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
 -- Navigate buffers
   keymap("n", "<S-l>", ":bnext<CR>", opts)
   keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- Telescope
+  keymap("n", "<C-p>", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
+
 
 -- Terminal --
 -- Better terminal navigation

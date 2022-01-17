@@ -1,15 +1,15 @@
--- vim.cmd [[
--- try
---   colorscheme darkplus
---   let g:dracula_colorterm = 0
---  colorscheme dracula
--- catch /^Vim\%((\a\+)\)\=:E185/
---   colorscheme default
---   set background=dark
--- endtry
--- ]]
+vim.cmd [[
+try
+  " colorscheme darkplus
 
-vim.cmd[[
-  let g:dracula_colorterm = 0
-  colorscheme dracula
+  " let g:dracula_colorterm = 0
+  " colorscheme dracula
+  colorscheme monokai_pro
+  " fix windows terminal pb with italic
+  hi Identifier gui=NONE
+  hi Type gui=None
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark
+endtry
 ]]
