@@ -1,15 +1,13 @@
-vim.cmd [[
-try
-  " colorscheme darkplus
+local colorscheme = "monokai_pro"
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
-  " let g:dracula_colorterm = 0
-  " colorscheme dracula
-  colorscheme monokai_pro
-  " fix windows terminal pb with italic
-  hi Identifier gui=NONE
-  hi Type gui=None
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
-]]
+if not status_ok then
+    vim.notify("colorscheme " .. colorscheme .. " not found")
+else
+    -- fix italic issues of windows terminal
+    vim.cmd[[
+        hi Identifier gui=NONE
+        hi Type gui=None
+    ]]
+end
+
