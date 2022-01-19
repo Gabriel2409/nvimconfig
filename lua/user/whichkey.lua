@@ -99,6 +99,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment"},
 
   p = {
     name = "Packer",
@@ -189,5 +190,19 @@ local mappings = {
   },
 }
 
+local visual_opts = {
+  mode = "v", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
+local visual_mappings ={
+  ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment"},
+}
+
 which_key.setup(setup)
 which_key.register(mappings, opts)
+which_key.register(visual_mappings, visual_opts)
