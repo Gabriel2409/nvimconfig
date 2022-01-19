@@ -1,6 +1,5 @@
 " remap jk to escape
 :imap jk <Esc>
-:
 " Copy paste to 'clipboard registry'
 set clipboard=unnamedplus
 nmap <C-c> "+yy

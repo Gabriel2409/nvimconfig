@@ -35,6 +35,9 @@ keymap("i", "<c-z>", "<Nop>", opts)
 keymap("n", "<c-z>", "<Nop>", opts)
 keymap("v", "<c-z>", "<Nop>", opts)
 
+-- move one character right in insert mode (simulate tabout)
+keymap("i", "<Tab>", "<right>", opts)
+
 -- switch pane with ctrl hjkl
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)

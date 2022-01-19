@@ -11,7 +11,7 @@
   -- auto resize
     --
   -- alpha
-  
+    --
 
 
 vim.cmd [[
