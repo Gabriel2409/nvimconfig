@@ -93,15 +93,16 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
+  ["F"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment"},
+  ["r"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
 
-  p = {
+  P = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
@@ -137,15 +138,14 @@ local mappings = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = {
-      "<cmd>Telescope lsp_document_diagnostics<cr>",
+      "<cmd>Telescope diagnostics bufnr=0<cr><esc>",
       "Document Diagnostics",
     },
     w = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+      "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-    f = { "<cmd>Neoformat<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
     g = {"<cmd>!isort %<cr>", "Isort"},
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -173,7 +173,6 @@ local mappings = {
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },

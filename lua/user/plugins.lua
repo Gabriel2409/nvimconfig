@@ -69,10 +69,7 @@ return packer.startup(function(use)
   use "lunarvim/darkplus.nvim"
   use "tomasr/molokai"
   use 'dracula/vim'
-  use "phanviet/vim-monokai-pro" 
-
-  -- formatters
-  use 'sbdchd/neoformat'
+  use "phanviet/vim-monokai-pro"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

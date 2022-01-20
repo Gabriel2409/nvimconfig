@@ -9,5 +9,12 @@ else
         hi Identifier gui=NONE
         hi Type gui=None
     ]]
+
+    -- change word color lsp
+    vim.cmd[[
+         highlight LspReferenceRead guibg=#555555
+         highlight LspReferenceText guibg=#555555
+         highlight LspReferenceWrite guibg=#555555
+        ]]
 end
 

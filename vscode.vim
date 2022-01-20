@@ -39,9 +39,14 @@ if(exists("g:vscode"))
     nmap <expr> k MoveCursor('k')
 endif
 
-" go to definition in vscode
 if(exists("g:vscode"))
+" go to definition in vscode
     nnoremap gd :call VSCodeNotify('editor.action.revealDefinition')<CR>
+" see references 
+    nnoremap gr :call VSCodeNotify('editor.action.goToReferences')<CR>
+" fix o issue
+nnoremap <silent> o <Cmd>call VSCodeNotify('editor.action.insertLineAfter')<CR>i
+nnoremap <silent> O <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>i
 endif
 
 " plugins
