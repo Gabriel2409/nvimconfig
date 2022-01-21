@@ -35,9 +35,6 @@ keymap("i", "<c-z>", "<Nop>", opts)
 keymap("n", "<c-z>", "<Nop>", opts)
 keymap("v", "<c-z>", "<Nop>", opts)
 
--- move one character right in insert mode (simulate tabout)
-keymap("i", "<Tab>", "<right>", opts)
-
 -- switch pane with ctrl hjkl
 keymap('n', '<c-j>', '<c-w>j', opts)
 keymap('n', '<c-k>', '<c-w>k', opts)
@@ -54,13 +51,15 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
-
+-- tabout
+--keymap("i","<Tab>", ": <expr> <Tab> search('\\%#[]>)}''\"`]', 'n') ?<cr> '<Right>' : '<Tab>'", opts)
+vim.cmd[[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']]
 -- Navigate buffers
-  keymap("n", "<S-l>", ":bnext<CR>", opts)
-  keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Telescope
-  keymap("n", "<C-p>", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
+keymap("n", "<C-p>", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 
 
 -- Terminal --

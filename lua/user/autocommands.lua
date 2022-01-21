@@ -49,6 +49,9 @@ vim.cmd [[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
+  augroup _tabout
+    inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
+  augroup end
 ]]
 
 -- Autoformat
