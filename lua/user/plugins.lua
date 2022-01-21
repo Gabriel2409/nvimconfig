@@ -41,7 +41,7 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
 
-  -- Have packer manage itself 
+  -- Have packer manage itself
   use "wbthomason/packer.nvim"
 
   -- Plugins required by a lot of plugins
@@ -92,6 +92,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
   -- Treesitter
    use {
