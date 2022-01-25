@@ -52,8 +52,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- tabout
---keymap("i","<Tab>", ": <expr> <Tab> search('\\%#[]>)}''\"`]', 'n') ?<cr> '<Right>' : '<Tab>'", opts)
 vim.cmd[[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']]
+
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
@@ -61,6 +61,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Telescope
 keymap("n", "<C-p>", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", opts)
 
+-- Expand to active directory on tab
+vim.cmd[[cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h').'/' : '%%']]
 
 -- Terminal --
 -- Better terminal navigation
