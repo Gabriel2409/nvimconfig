@@ -89,21 +89,21 @@ local mappings = {
   ["J"] = { "zO", "Open all folds below cursor"},
   ["k"] = { "<cmd>foldclose<cr>", "Close fold"},
   ["K"] = { "zC", "Close all folds below cursor"},
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["p"] = {'"0p',"Paste from yank"},
+  ["P"] = {'"0P',"Paste from yank"},
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["F"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
   ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
   ["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment"},
   ["r"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
 
-  P = {
-    name = "Packer",
+  M = {
+    name = "Manage Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
     s = { "<cmd>PackerSync<cr>", "Sync" },
@@ -200,6 +200,7 @@ local visual_opts = {
 
 local visual_mappings ={
   ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment"},
+  ["p"] = {'"_c<c-r>0<esc>', "Replace with yanked text"}
 }
 
 which_key.setup(setup)
