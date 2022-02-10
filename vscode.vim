@@ -10,6 +10,10 @@ set number
 set relativenumber
 
 
+" replace when pasting from yank in visual mode (to use with whichkey)
+vnoremap "_0p _c<c-r>0<esc>
+
+
 " highlight yank text
 augroup highlight_yank
     autocmd!

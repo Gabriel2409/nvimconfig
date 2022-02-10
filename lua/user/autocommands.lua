@@ -1,20 +1,19 @@
 -- Commands details
-  -- General settings
-    -- highlight on yank
-  -- vim sandwich
-    -- use vim-surround keybindings
+-- General settings
+-- highlight on yank
+-- vim sandwich
+-- use vim-surround keybindings
 
-  -- git
-    --
-  -- markdown
-    --
-  -- auto resize
-    --
-  -- alpha
-    --
+-- git
+--
+-- markdown
+--
+-- auto resize
+--
+-- alpha
+--
 
-
-vim.cmd [[
+vim.cmd([[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
@@ -52,7 +51,7 @@ vim.cmd [[
   augroup _tabout
     inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
   augroup end
-]]
+]])
 
 -- Autoformat
 -- augroup _lsp
