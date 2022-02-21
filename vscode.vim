@@ -49,8 +49,8 @@ if(exists("g:vscode"))
 " see references 
     nnoremap gr :call VSCodeNotify('editor.action.goToReferences')<CR>
 " fix o issue
-nnoremap <silent> o <Cmd>call VSCodeNotify('editor.action.insertLineAfter')<CR>i
-nnoremap <silent> O <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>i
+" nnoremap <silent> o <Cmd>call VSCodeNotify('editor.action.insertLineAfter')<CR>i
+" nnoremap <silent> O <Cmd>call VSCodeNotify('editor.action.insertLineBefore')<CR>i
 endif
 
 " plugins

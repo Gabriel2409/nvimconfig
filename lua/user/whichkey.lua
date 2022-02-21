@@ -102,6 +102,20 @@ local mappings = {
 	["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment" },
 	["r"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
 
+	d = {
+		name = "Debug",
+		a = { "<cmd>call vimspector#Launch()<cr>", "Start Debug" },
+		q = { "<cmd>call vimspector#Reset()<cr>", "Close vimspector" },
+		b = { "<cmd>call vimspector#ToggleBreakpoint()<cr>", "Toggle Breakpoint" },
+		B = { "<cmd>call vimspector#ToggleConditionalBreakpoint()<cr>", "Toggle Conditional Breakpoint" },
+    c = {"<cmd>call vimspector#Continue()", "Continue"},
+		k = { "<cmd>call vimspector#StepOut()<cr>", "Step Out" },
+		j = { "<cmd>call vimspector#StepInto()<cr>", "Step Into" },
+		l = { "<cmd>call vimspector#StepOver()<cr>", "Step Over" },
+		m = { "<cmd>call vimspector#RunToCursor()<cr>", "Run To cursor" },
+		r = { "<cmd>call vimspector#Restart()<cr>", "Restart" },
+		z = { "<cmd>call vimspector#ClearBreakpoints()<cr>", "Clear Breakpoints" },
+	},
 	M = {
 		name = "Manage Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },

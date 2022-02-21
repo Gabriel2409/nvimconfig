@@ -13,6 +13,7 @@ vim.g.maplocalleader = " "
 -- remap jk and jj to escape
 keymap("i", "jk", "<esc>", opts)
 keymap("i", "jj", "<esc>", opts)
+keymap("i", "jl", "<right>", opts)
 
 -- remap space as leader key
 keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
