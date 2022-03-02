@@ -1,13 +1,13 @@
 " remap jk to escape
-:imap jk <Esc>
+":imap jk <Esc>
 " Copy paste to 'clipboard registry'
 set clipboard=unnamedplus
 nmap <C-c> "+yy
 vmap <C-c> "+y
 
 " add line numbers
-set number
-set relativenumber
+"set number
+"set relativenumber
 
 
 " replace when pasting from yank in visual mode (to use with whichkey)
@@ -38,7 +38,7 @@ if(exists("g:vscode"))
             return a:direction
         endif
     endfunction
-    
+
     nmap <expr> j MoveCursor('j')
     nmap <expr> k MoveCursor('k')
 endif
@@ -55,8 +55,9 @@ endif
 
 " plugins
 call plug#begin()
-Plug 'machakann/vim-sandwich'
+"Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " vim-surround keybinding for vim-sandwich
-runtime macros/sandwich/keymap/surround.vim
+"runtime macros/sandwich/keymap/surround.vim
