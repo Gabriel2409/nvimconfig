@@ -36,17 +36,19 @@ keymap("i", "<c-z>", "<Nop>", opts)
 keymap("n", "<c-z>", "<Nop>", opts)
 keymap("v", "<c-z>", "<Nop>", opts)
 
--- switch pane with ctrl hjkl
-keymap("n", "<c-j>", "<c-w>j", opts)
-keymap("n", "<c-k>", "<c-w>k", opts)
-keymap("n", "<c-h>", "<c-w>h", opts)
-keymap("n", "<c-l>", "<c-w>l", opts)
+-- move faster
+keymap("n", "<c-j>", "5j", opts)
+keymap("n", "<c-k>", "5k", opts)
 
 -- resize panes with arrow keys
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- toggle comment
+keymap("n", "<C-_>", ":lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", opts)
+keymap("v", "<C-_>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
 -- stay in visual mode on indent
 keymap("v", "<", "<gv", opts)
@@ -56,21 +58,28 @@ keymap("v", ">", ">gv", opts)
 vim.cmd([[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']])
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferlineCyclePrev<CR>", opts)
 
 -- Telescope
 keymap(
-	"n",
-	"<C-p>",
-	":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	opts
+  "n",
+  "<C-p>",
+  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  opts
+)
+
+keymap(
+  "n",
+  "<C-b>",
+  ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr><esc>",
+  opts
 )
 
 -- Format
-keymap("n", "<A-S-f>", ":lua vim.lsp.buf.formatting_sync()<cr>", opts)
+keymap("n", "<A-S-f>", ":lua vim.lsp.buf.format({timeout_ms = 2000})<cr>", opts)
 
--- Expand to active directory on tab
+-- Expand to active directory on tab in cmd line
 vim.cmd([[cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
 
 -- Terminal --

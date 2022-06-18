@@ -108,7 +108,7 @@ local mappings = {
 		q = { "<cmd>call vimspector#Reset()<cr>", "Close vimspector" },
 		b = { "<cmd>call vimspector#ToggleBreakpoint()<cr>", "Toggle Breakpoint" },
 		B = { "<cmd>call vimspector#ToggleAdvancedBreakpoint()<cr>", "Toggle Conditional Breakpoint" },
-    c = {"<cmd>call vimspector#Continue()<cr>", "Continue"},
+		c = { "<cmd>call vimspector#Continue()<cr>", "Continue" },
 		k = { "<cmd>call vimspector#StepOut()<cr>", "Step Out" },
 		j = { "<cmd>call vimspector#StepInto()<cr>", "Step Into" },
 		l = { "<cmd>call vimspector#StepOver()<cr>", "Step Over" },
@@ -159,8 +159,7 @@ local mappings = {
 			"<cmd>Telescope diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
-		g = { "<cmd>!isort %<cr>", "Isort" },
+		f = { "<cmd>lua vim.lsp.buf.format({timeout_ms=2000})<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {

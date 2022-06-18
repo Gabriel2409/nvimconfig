@@ -1,0 +1,204 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+	{
+		"key": "ctrl+alt+q",
+		"command": "editor.action.insertSnippet",
+		"when": "editorTextFocus",
+		"args": {
+			"snippet": "`${TM_SELECTED_TEXT}`"
+		}
+	},
+	{
+		"key": "ctrl+shift+oem_2",
+		"command": "editor.action.blockComment",
+		"when": "editorTextFocus && !editorReadonly"
+	},
+	//cursor
+	{
+		"key": "shift+up",
+		"command": "editor.action.smartSelect.expand",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+up",
+		"command": "cursorMove",
+		"args": {
+			"to": "up",
+			"by": "line",
+			"value": 5
+		},
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+down",
+		"command": "cursorMove",
+		"args": {
+			"to": "down",
+			"by": "line",
+			"value": 5
+		},
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "cursorMove",
+		"args": {
+			"to": "up",
+			"by": "line",
+			"value": 5
+		},
+		"when": "!inQuickOpen && !suggestWidgetVisible"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "cursorMove",
+		"args": {
+			"to": "down",
+			"by": "line",
+			"value": 5
+		},
+		"when": "!inQuickOpen && !suggestWidgetVisible"
+	},
+	// ------------------
+	// ---- NEOVIM ------
+	// ------------------
+	// remove keybindings
+	{
+		"key": "ctrl+k ctrl+i",
+		"command": "-editor.action.showHover",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+c",
+		"command": "-vscode-neovim.escape",
+		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+c",
+		"command": "-vscode-neovim.escape",
+		"when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode == 'insert'"
+	},
+	// remap jj and jk to escape
+	{
+		"command": "vscode-neovim.compositeEscape1",
+		"key": "j",
+		"when": "neovim.mode == insert && editorTextFocus",
+		"args": "j"
+	},
+	{
+		"command": "vscode-neovim.compositeEscape2",
+		"key": "k",
+		"when": "neovim.mode == insert && editorTextFocus",
+		"args": "k"
+	},
+	// show hover
+	{
+		"key": "shift+k",
+		"command": "editor.action.showHover",
+		"when": "editorTextFocus && neovim.mode != insert"
+	},
+	// autocompletion
+	{
+		"key": "ctrl+j",
+		"command": "selectNextSuggestion",
+		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "selectPrevSuggestion",
+		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+	},
+	// whichkey
+	{
+		"key": "space",
+		"command": "whichkey.show",
+		"when": "neovim.mode != 'insert' && neovim.mode != replace && editorFocus"
+	},
+	// navigate in command palette menu
+	{
+		"key": "ctrl+j",
+		"command": "workbench.action.quickOpenNavigateNext",
+		"when": "inQuickOpen"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "workbench.action.quickOpenNavigatePrevious",
+		"when": "inQuickOpen"
+	},
+	// navigate with control
+	{
+		"key": "ctrl+w h",
+		"command": "workbench.action.navigateLeft",
+		"when": "!inQuickOpen"
+	},
+	{
+		"key": "ctrl+w l",
+		"command": "workbench.action.navigateRight",
+		"when": "!inQuickOpen"
+	},
+	{
+		"key": "ctrl+w k",
+		"command": "workbench.action.navigateUp",
+		"when": "!inQuickOpen && !suggestWidgetVisible"
+	},
+	{
+		"key": "ctrl+w j",
+		"command": "workbench.action.navigateDown",
+		"when": "!inQuickOpen && !suggestWidgetVisible"
+	},
+	// suggestions
+	{
+		"key": "ctrl+space",
+		"command": "hideSuggestWidget",
+		"when": "suggestWidgetVisible && textInputFocus"
+	},
+	{
+		"key": "ctrl+j",
+		"command": "search.focus.nextInputBox",
+		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+	},
+	{
+		"key": "ctrl+k",
+		"command": "search.focus.previousInputBox",
+		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
+	},
+
+	// -----------------
+	// --- NOTEBOOK ----
+	// -----------------
+	{
+		"key": "c c",
+		"command": "notebook.cell.copy",
+		"when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
+	},
+	{
+		"key": "c",
+		"command": "-notebook.cell.copy",
+		"when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
+	},
+	{
+		"key": "x x",
+		"command": "notebook.cell.cut",
+		"when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
+	},
+	{
+		"key": "x",
+		"command": "-notebook.cell.cut",
+		"when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
+	},
+	{
+		"key": "v v",
+		"command": "notebook.cell.paste",
+		"when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
+	},
+	{
+		"key": "v",
+		"command": "-notebook.cell.paste",
+		"when": "notebookEditorFocused && !inputFocus && notebookViewType == 'jupyter-notebook'"
+	},
+	{
+		"key": "z",
+		"command": "-undo",
+		"when": "notebookEditorFocused && !inputFocus"
+	}
+]
