@@ -51,4 +51,8 @@ vim.cmd([[
   augroup _tabout
     inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
   augroup end
+
+  augroup _subdirectory_find
+    set path+=**
+  augroup end
 ]])

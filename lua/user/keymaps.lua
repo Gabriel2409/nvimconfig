@@ -15,6 +15,10 @@ keymap("i", "jk", "<esc>", opts)
 keymap("i", "jj", "<esc>", opts)
 keymap("i", "jl", "<right>", opts)
 
+-- remap ctrl c
+keymap("n", "<C-c>", '"+yy', { noremap = true, silent = true })
+keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
+
 -- remap space as leader key
 keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
@@ -25,16 +29,16 @@ keymap("n", "<A-k>", ":m.-2<CR>", opts)
 keymap("n", "<A-j>", ":m.+1<CR>", opts)
 
 -- keep previous yank when pasting over a text in visual mode
-keymap("v", "p", '"_dP', opts)
+--keymap("v", "p", '"_dP', opts)
 
 -- ctrl s to save
 keymap("n", "<c-s>", ":w<CR>", {})
 keymap("i", "<c-s>", "<esc>:w<CR>a", {})
 
--- ctrl z does not close anymore
-keymap("i", "<c-z>", "<Nop>", opts)
-keymap("n", "<c-z>", "<Nop>", opts)
-keymap("v", "<c-z>", "<Nop>", opts)
+-- ctrl z suspends vim. To see suspended jobs, run jobs. To resume vim, run fg
+-- keymap("i", "<c-z>", "<Nop>", opts)
+-- keymap("n", "<c-z>", "<Nop>", opts)
+-- keymap("v", "<c-z>", "<Nop>", opts)
 
 -- move faster
 keymap("n", "<c-j>", "5j", opts)
@@ -51,15 +55,15 @@ keymap("n", "<C-_>", ":lua require('Comment.api').call('toggle_current_linewise'
 keymap("v", "<C-_>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
 -- stay in visual mode on indent
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+-- keymap("v", "<", "<gv", opts)
+-- keymap("v", ">", ">gv", opts)
 
 -- tabout
 vim.cmd([[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']])
 
 -- Navigate buffers
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferlineCyclePrev<CR>", opts)
 
 -- Telescope
 keymap(
