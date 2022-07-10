@@ -64,6 +64,10 @@ return packer.startup(function(use)
   use("folke/which-key.nvim")
   use("machakann/vim-sandwich")
   use("puremourning/vimspector")
+
+  --R
+  use("jalvesaq/Nvim-R")
+
   -- Colorschemes
   use("lunarvim/darkplus.nvim")
   use("tomasr/molokai")

@@ -91,8 +91,6 @@ local mappings = {
   ["k"] = { "<cmd>foldclose<cr>", "Close fold" },
   ["K"] = { "zC", "Close all folds below cursor" },
   ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["p"] = { '"0p', "Paste from yank" },
-  ["P"] = { '"0P', "Paste from yank" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["F"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -214,9 +212,22 @@ local visual_opts = {
 
 local visual_mappings = {
   ["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
-  ["p"] = { '"_c<c-r>0<esc>', "Replace with yanked text" },
+}
+
+local r_opts = {
+  mode = "n", -- NORMAL mode
+  prefix = "<localleader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
+local r_mappings = {
+  ["?"] = { "<CMD>:help Nvim-R<CR>/Default shortcut<CR>", "Shortcuts" },
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(visual_mappings, visual_opts)
+which_key.register(r_mappings, r_opts)

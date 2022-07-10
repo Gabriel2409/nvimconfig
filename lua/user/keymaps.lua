@@ -5,11 +5,6 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- remap jk and jj to escape
 keymap("i", "jk", "<esc>", opts)
 keymap("i", "jj", "<esc>", opts)
@@ -22,7 +17,7 @@ keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
 -- remap space as leader key
 keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+--vim.g.maplocalleader = "\\"
 
 -- move lines up and down
 keymap("n", "<A-k>", ":m.-2<CR>", opts)
