@@ -19,6 +19,7 @@ null_ls.setup({
     formatting.stylua,
     formatting.styler,
     diagnostics.flake8,
+    diagnostics.eslint,
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

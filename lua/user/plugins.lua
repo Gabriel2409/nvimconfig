@@ -75,6 +75,7 @@ return packer.startup(function(use)
   use("sainnhe/sonokai")
   use("phanviet/vim-monokai-pro")
   use("https://gitlab.com/__tpb/monokai-pro.nvim")
+  use("folke/tokyonight.nvim")
 
   -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -110,6 +111,14 @@ return packer.startup(function(use)
 
   -- Git
   use("lewis6991/gitsigns.nvim")
+
+  -- markdown preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
