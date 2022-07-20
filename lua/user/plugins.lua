@@ -63,8 +63,8 @@ return packer.startup(function(use)
   use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
   use("folke/which-key.nvim")
   use("machakann/vim-sandwich")
-  use("puremourning/vimspector")
-
+  --use("puremourning/vimspector")
+  use("mfussenegger/nvim-dap") -- debugger
   --R
   use("jalvesaq/Nvim-R")
 
@@ -91,8 +91,9 @@ return packer.startup(function(use)
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
   -- LSP
-  use("neovim/nvim-lspconfig") -- enable LSP
+  use("neovim/nvim-lspconfig") -- enableLSP
   use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+  use({ "williamboman/mason.nvim", branch = "alpha" }) -- same as above but for everything including lsp. We keep the above plugin as this one is in alpha
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
   use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
