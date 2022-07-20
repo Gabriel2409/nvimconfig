@@ -65,6 +65,9 @@ return packer.startup(function(use)
   use("machakann/vim-sandwich")
   --use("puremourning/vimspector")
   use("mfussenegger/nvim-dap") -- debugger
+  use("theHamsta/nvim-dap-virtual-text")
+  use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
   --R
   use("jalvesaq/Nvim-R")
 
