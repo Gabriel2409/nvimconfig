@@ -11,7 +11,6 @@ if not config_status_ok then
   return
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
 local list = {
 
   { key = "-", action = "dir_up" },
@@ -167,10 +166,6 @@ nvim_tree.setup({ -- BEGIN_DEFAULT_OPTS
     dotfiles = false,
     custom = {},
     exclude = {},
-  },
-  filesystem_watchers = {
-    enable = false,
-    interval = 100,
   },
   git = {
     enable = true,

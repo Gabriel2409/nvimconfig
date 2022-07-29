@@ -1,16 +1,13 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
--- remap jk and jj to escape
+-- remap jk  to escape
 keymap("i", "jk", "<esc>", opts)
-keymap("i", "jj", "<esc>", opts)
 keymap("i", "jl", "<right>", opts)
 
--- remap ctrl c
+-- remap ctrl c to yank to system clipboard
 keymap("n", "<C-c>", '"+yy', { noremap = true, silent = true })
 keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
 
@@ -49,10 +46,6 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-_>", ":lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", opts)
 keymap("v", "<C-_>", ":lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opts)
 
--- stay in visual mode on indent
--- keymap("v", "<", "<gv", opts)
--- keymap("v", ">", ">gv", opts)
-
 -- tabout
 vim.cmd([[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']])
 
@@ -80,13 +73,6 @@ keymap("n", "<A-S-f>", ":lua vim.lsp.buf.format({timeout_ms = 2000})<cr>", opts)
 
 -- Expand to active directory on tab in cmd line
 vim.cmd([[cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- R mapping with _
 vim.cmd([[let R_assign=2]])

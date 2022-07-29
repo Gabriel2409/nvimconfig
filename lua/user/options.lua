@@ -1,6 +1,6 @@
 local options = {
   backup = false, -- creates a backup file
-  --clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
+  --clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   cmdheight = 2, -- more space in the neovim command line for displaying messages
   colorcolumn = "80,81,82,83,84,85,86,87,88", -- editor ruler (88 is black limit)
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
@@ -36,16 +36,14 @@ local options = {
   guifont = "monospace:h17", -- the font used in graphical neovim applications
 }
 
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append("c") -- avoids all the hit enter prompts due to completion
 
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+-- a bit different from setting it in the option. Standard yank does not change the
+-- associated register. Plus it seems to better work with surround plugin that way
 vim.cmd([[
-"set clipboard^=unnamedplus
+"set clipboard=^unnamedplus
 ]])
-
--- vim.cmd "set whichwrap+=<,>,[,],h,l"
--- vim.cmd [[set iskeyword+=-]]
--- vim.cmd [[set formatoptions-=cro]]
