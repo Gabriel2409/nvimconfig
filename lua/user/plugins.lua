@@ -63,10 +63,14 @@ return packer.startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim")
 	use("machakann/vim-sandwich")
-	--use("puremourning/vimspector")
-	use("mfussenegger/nvim-dap") -- debugger
+
+	-- debugger
+	use("mfussenegger/nvim-dap")
 	use("theHamsta/nvim-dap-virtual-text")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+
+	-- tasks
+	use("stevearc/overseer.nvim")
 
 	--R
 	use("jalvesaq/Nvim-R")
