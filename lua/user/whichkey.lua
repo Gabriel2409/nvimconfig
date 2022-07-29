@@ -100,7 +100,6 @@ local mappings = {
 	["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
 	["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment" },
 	["r"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
-	["o"] = { "<cmd>OverseerToggle<cr>", "Overseer" },
 
 	d = {
 		name = "Debug",
@@ -121,6 +120,11 @@ local mappings = {
 			"Inspect",
 		},
 		t = { "<cmd> lua require('dapui').toggle()<cr>", "Toggle debugger ui" },
+	},
+	o = {
+		name = "Overseer",
+		o = { "<cmd>OverseerToggle<cr>", "Toggle task panel" },
+		t = { "<cmd>OverseerRun<cr>", "Run task" },
 	},
 	M = {
 		name = "Manage Packer",
