@@ -62,7 +62,13 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim")
-	use("machakann/vim-sandwich")
+	--use("machakann/vim-sandwich")
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	})
 
 	-- debugger
 	use("mfussenegger/nvim-dap")

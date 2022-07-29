@@ -22,10 +22,6 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
-  augroup _vim_sandwich
-    runtime macros/sandwich/keymap/surround.vim
-  augroup end
-
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
