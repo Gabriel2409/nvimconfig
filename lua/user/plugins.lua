@@ -101,8 +101,16 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enableLSP
 	use("williamboman/mason.nvim") -- same as above but for everything including lsp
 	use("williamboman/mason-lspconfig.nvim") -- allows better compatibility between lspconfig and mason
+
 	--use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	use({
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	})
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
