@@ -4,11 +4,10 @@ if not status_ok then
 end
 
 configs.setup({
-  ensure_installed = {"lua", "python", "javascript","typescript", "html", "css"},
-	
+	ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css" },
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
-	 autopairs = {
+	autopairs = {
 		enable = true,
 	},
 	highlight = {
