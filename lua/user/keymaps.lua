@@ -55,17 +55,17 @@ keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 
 -- Telescope
 keymap(
-  "n",
-  "<C-p>",
-  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  opts
+	"n",
+	"<C-p>",
+	":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	opts
 )
 
 keymap(
-  "n",
-  "<C-b>",
-  ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr><esc>",
-  opts
+	"n",
+	"<C-b>",
+	":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr><esc>",
+	opts
 )
 
 -- Format
