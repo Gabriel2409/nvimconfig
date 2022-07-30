@@ -10,6 +10,9 @@ keymap("i", "jl", "<right>", opts)
 -- remap ctrl c to yank to system clipboard
 keymap("n", "<C-c>", '"+yy', { noremap = true, silent = true })
 keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
+-- remap ctrl v to paste from system clipboard
+-- keymap("n", "<C-v>", '"+p', { noremap = true, silent = true })
+-- keymap("v", "<C-v>", '"+p', { noremap = true, silent = true })
 
 -- remap space as leader key
 keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
