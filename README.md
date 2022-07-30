@@ -19,6 +19,25 @@ Summary:
 - Install a nerd font from https://www.nerdfonts.com/font-downloads (choose one, unzip and double click one one to install it)
 - in windows terminal click on arrow next to tab, go to settings, and modify appearance of ubuntu to use this font 
 
+## qol bash 
+- create `.inputrc` in the $HOME directory and put
+```
+# Respect default shortcuts.
+$include /etc/inputrc
+
+## arrow up
+"\e[A":history-search-backward
+## arrow down
+"\e[B":history-search-forward
+
+# zsh like completion:
+set show-all-if-ambiguous on
+set completion-ignore-case on
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+set colored-completion-prefix on
+```
+
 
 ## Install packages
 - `sudo apt update`
