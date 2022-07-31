@@ -101,6 +101,9 @@ Complete guide to pyenv: https://github.com/pyenv/pyenv#getting-pyenv
   - run `pyenv install 3.9.12`
   - run `pyenv global 3.9.12`
 
+### install ripgrep
+`sudo apt install ripgrep`
+
 ## Install neovim:
 - Complete guide: https://github.com/neovim/neovim/wiki/Installing-Neovim
 - `sudo add-apt-repository ppa:neovim-ppa/unstable`

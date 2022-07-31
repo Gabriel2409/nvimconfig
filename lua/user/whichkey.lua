@@ -91,15 +91,19 @@ local mappings = {
 	["k"] = { "<cmd>foldclose<cr>", "Close fold" },
 	["K"] = { "zC", "Close all folds below cursor" },
 	["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["F"] = {
+	["p"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"Find files",
+	},
+	["P"] = {
+		"<cmd>lua require('telescope.builtin').find_files()<cr>",
 		"Find files",
 	},
 	["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
 	["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment" },
-	["r"] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
+	["r"] = { "<cmd>Telescope oldfiles<cr><esc>", "Open recent" },
+	['"'] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
 
 	d = {
 		name = "Debug",
@@ -173,15 +177,14 @@ local mappings = {
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+			"<cmd>lua vim.diagnostic.goto_next()<CR>",
 			"Next Diagnostic",
 		},
 		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
@@ -189,8 +192,8 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
-	s = {
-		name = "Search",
+	T = {
+		name = "Telescope options",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
