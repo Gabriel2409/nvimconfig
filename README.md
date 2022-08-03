@@ -42,7 +42,7 @@ set colored-completion-prefix on
 ## Install packages
 - `sudo apt update`
 - `sudo apt upgrade`
-- `sudo apt install gcc g++ make zip unzip make build-essential libssl-dev zlib1g-dev software-properties-common`
+- `sudo apt install gcc g++ make zip unzip make build-essential libssl-dev zlib1g-dev software-properties-common libffi-dev python-dev`
 
 ## Install ssh key for github
 
