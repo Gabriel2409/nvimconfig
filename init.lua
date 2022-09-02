@@ -23,4 +23,4 @@ require("user.alpha")
 require("user.whichkey")
 require("user.autocommands")
 
-require("user.disable-motion") -- disable multiple use of hjkl to improve navigation skills
+-- require("user.disable-motion") -- disable multiple use of hjkl to improve navigation skills

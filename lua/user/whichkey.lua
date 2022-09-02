@@ -101,7 +101,6 @@ local mappings = {
 	},
 	["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
-	["/"] = { "<cmd>lua require('Comment.api').call('toggle_current_linewise')<cr>g@$", "Comment" },
 	["r"] = { "<cmd>Telescope oldfiles<cr><esc>", "Open recent" },
 	['"'] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
 
@@ -224,9 +223,7 @@ local visual_opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-local visual_mappings = {
-	["/"] = { "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
-}
+local visual_mappings = {}
 
 local r_opts = {
 	mode = "n", -- NORMAL mode
