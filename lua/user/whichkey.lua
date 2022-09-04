@@ -103,6 +103,7 @@ local mappings = {
 	["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
 	["r"] = { "<cmd>Telescope oldfiles<cr><esc>", "Open recent" },
 	['"'] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
+	["/"] = { "<cmd>CommentToggle<CR>", "Comments" },
 
 	d = {
 		name = "Debug",
