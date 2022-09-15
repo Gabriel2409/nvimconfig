@@ -70,6 +70,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- marks
+	use("chentoast/marks.nvim")
+
 	-- debugger
 	use("mfussenegger/nvim-dap")
 	use("theHamsta/nvim-dap-virtual-text")

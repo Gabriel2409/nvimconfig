@@ -155,3 +155,7 @@ fi
   - `unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe`
   - `chmod +x /tmp/win32yank.exe`
   - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
+
+## Helper cmd lines:
+
+- kill connection: `sudo lsof -t -i tcp:<port> | xargs kill -9`
