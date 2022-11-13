@@ -28,7 +28,7 @@ search local.mydomain.com
 nameserver 8.8.8.8
 ```
 
-- to make change permanent add the following to /etc/wsl.conf
+To make change permanent add the following to /etc/wsl.conf
 
 ```
 [network]
@@ -36,6 +36,22 @@ generateResolvConf=false
 ```
 
 Then exit wsl and run `wsl --shutdown` in powershell BEFORE reconnecting
+
+- In case of SSL certs problems (for ex when dealing with zscaler):
+  https://github.com/microsoft/WSL/issues/3161
+
+```
+Go to Manage User Certificates >  Trusted Root Certification Authorities > Certificates > Open the root CA you are interesed in
+> Details > Copy To File > Base64 X.509
+
+Copy that .cer file to /usr/local/share/ca-certificates in WSL2
+Run
+sudo openssl x509 -inform PEM -in xxx.cer -out xxx.crt
+sudo update-ca-certificates
+
+Verify:
+ls /etc/ssl/certs | grep xxx
+```
 
 ## qol bash
 
