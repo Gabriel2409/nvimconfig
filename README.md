@@ -20,6 +20,23 @@ Summary:
 - Install a nerd font from https://www.nerdfonts.com/font-downloads (choose one, unzip and double click one one to install it)
 - in windows terminal click on arrow next to tab, go to settings, and modify appearance of ubuntu to use this font
 
+- Note: in case of Temporary failure in name resolution, you can modify /etc/resolv.conf
+
+```
+# example custom resolv.conf
+search local.mydomain.com
+nameserver 8.8.8.8
+```
+
+- to make change permanent add the following to /etc/wsl.conf
+
+```
+[network]
+generateResolvConf=false
+```
+
+Then exit wsl and run `wsl --shutdown` in powershell BEFORE reconnecting
+
 ## qol bash
 
 - create `.inputrc` in the $HOME directory and put

@@ -26,9 +26,9 @@ keymap("n", "<A-j>", ":m.+1<CR>", opts)
 -- keep previous yank when pasting over a text in visual mode
 --keymap("v", "p", '"_dP', opts)
 
--- ctrl s to save
-keymap("n", "<c-s>", ":w<CR>", {})
-keymap("i", "<c-s>", "<esc>:w<CR>a", {})
+-- ctrl s to save without formatting
+keymap("n", "<c-s>", ":noautocmd w<CR>", {})
+keymap("i", "<c-s>", "<esc>:noautocmd w<CR>a", {})
 
 -- ctrl z suspends vim. To see suspended jobs, run jobs. To resume vim, run fg
 -- keymap("i", "<c-z>", "<Nop>", opts)
