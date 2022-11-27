@@ -147,6 +147,13 @@ Complete guide to pyenv: https://github.com/pyenv/pyenv#getting-pyenv
   - run `pyenv install 3.9.12`
   - run `pyenv global 3.9.12`
 
+Note: if you are running behind zscaler, you must create a .pip/pip.conf file: 
+
+```
+[global]
+cert=/etc/ssl/certs/zscaler-root-ca.pem 
+```
+
 ### install ripgrep
 
 `sudo apt install ripgrep`
@@ -188,6 +195,9 @@ fi
   - `unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe`
   - `chmod +x /tmp/win32yank.exe`
   - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
+
+- notes for nvim-r plugin:
+  - on each project with renv, nvimcom must be installed: for ex: `renv::install("~/R/x86_64-pc-linux-gnu-library/4.2/nvimcom/")`
 
 ## Helper cmd lines:
 
