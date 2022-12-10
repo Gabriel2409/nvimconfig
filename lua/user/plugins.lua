@@ -51,9 +51,8 @@ return packer.startup(function(use)
 	use("terrortylor/nvim-comment") -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
-	use("justinmk/vim-sneak")
 	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
+	use("moll/vim-bbye") -- check if still needed
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
 	use("ahmedkhalf/project.nvim")
@@ -62,7 +61,6 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim")
-	--use("machakann/vim-sandwich")
 	use({
 		"kylechui/nvim-surround",
 		config = function()
@@ -103,8 +101,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lua")
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	-- use("L3MON4D3/LuaSnip") --snippet engine
+	-- use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enableLSP
@@ -121,6 +119,11 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- highlight of args
+	use({
+		"m-demare/hlargs.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })

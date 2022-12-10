@@ -31,13 +31,6 @@ keymap("n", "<c-s>", ":noautocmd w<CR>", {})
 keymap("i", "<c-s>", "<esc>:noautocmd w<CR>a", {})
 
 -- ctrl z suspends vim. To see suspended jobs, run jobs. To resume vim, run fg
--- keymap("i", "<c-z>", "<Nop>", opts)
--- keymap("n", "<c-z>", "<Nop>", opts)
--- keymap("v", "<c-z>", "<Nop>", opts)
-
--- move faster
-keymap("n", "<c-j>", "5j", opts)
-keymap("n", "<c-k>", "5k", opts)
 
 -- resize panes with arrow keys
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
