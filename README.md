@@ -147,6 +147,13 @@ Complete guide to pyenv: https://github.com/pyenv/pyenv#getting-pyenv
   - run `pyenv install 3.9.12`
   - run `pyenv global 3.9.12`
 
+Note: if you are running behind zscaler, you must create a .pip/pip.conf file:
+
+```
+[global]
+cert=/etc/ssl/certs/zscaler-root-ca.pem
+```
+
 ### install ripgrep
 
 `sudo apt install ripgrep`
@@ -192,7 +199,8 @@ NOTE: alternatively, install and set up xdg-utils so that wsl can open a browser
   - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
 
 
-## NOTE FOR R projects with renv
+## NOTE FOR R projects with renv with nvim-r plugin
+libraries installed by Mason and nvimcom must be available.
 
 https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work
 For ex, adding the line `.libPaths(c(.libPaths(), "~/R/x86_64-pc-linux-gnu-library/4.2"))` to .Rprofile can work
