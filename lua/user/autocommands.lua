@@ -48,6 +48,14 @@ vim.cmd([[
     inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
   augroup end
 
+  augroup _radian
+    let R_app = "radian"
+    let R_cmd = "R"
+    let R_hl_term = 0
+    let R_args = [] 
+    let R_bracketed_paste = 1
+  augroup end
+
   augroup _subdirectory_find
     set path+=**
   augroup end

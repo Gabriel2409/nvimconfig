@@ -10,6 +10,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
+	default_timeout = 5000,
 	debug = false,
 	sources = {
 		formatting.prettier.with({ extra_args = {} }),

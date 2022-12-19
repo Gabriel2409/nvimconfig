@@ -175,6 +175,8 @@ else
 fi
 ```
 
+NOTE: alternatively, install and set up xdg-utils so that wsl can open a browser
+
 ## Install neovim:
 
 - Complete guide: https://github.com/neovim/neovim/wiki/Installing-Neovim
@@ -187,7 +189,7 @@ fi
 - start neovim with `nvim`, go to config by pressing `c`, wait for install, go to `plugins.lua` and save to trigger all installs
 - launch Mason in the command: `:Mason` to install language servers, formatters, etc
 
-- add copy to system clipboard: you need to install win32yank and xclip
+- add copy to system clipboard: you need to install win32yank and xclip: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 
   - `sudo apt install xclip`
 
@@ -196,9 +198,12 @@ fi
   - `chmod +x /tmp/win32yank.exe`
   - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
 
-- notes for nvim-r plugin:
-  - on each project with renv, nvimcom must be installed: for ex:
-    `renv::install("~/R/x86_64-pc-linux-gnu-library/4.2/nvimcom/")`
+
+## NOTE FOR R projects with renv with nvim-r plugin
+libraries installed by Mason and nvimcom must be available.
+
+https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work
+For ex, adding the line `.libPaths(c(.libPaths(), "~/R/x86_64-pc-linux-gnu-library/4.2"))` to .Rprofile can work
 
 ## Helper cmd lines:
 
