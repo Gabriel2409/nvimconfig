@@ -100,8 +100,9 @@ local mappings = {
     "Find files",
   },
   ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["F"] = { "<cmd>lua require('spectre').open()<cr>", "Search and replace" },
   ["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
-  ["r"] = { "<cmd>Telescope oldfiles<cr><esc>", "Open recent" },
+  -- ["r"] = { "<cmd>Telescope oldfiles<cr><esc>", "Open recent" },
   ['"'] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
   ["/"] = { "<cmd>CommentToggle<CR>", "Comments" },
 

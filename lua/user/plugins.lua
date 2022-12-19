@@ -90,6 +90,7 @@ return packer.startup(function(use)
 	use("phanviet/vim-monokai-pro")
 	use("https://gitlab.com/__tpb/monokai-pro.nvim")
 	use("folke/tokyonight.nvim")
+	use("ellisonleao/gruvbox.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -127,6 +128,9 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
+	-- Spectre
+	use("windwp/nvim-spectre")
 
 	-- Treesitter
 	use({
