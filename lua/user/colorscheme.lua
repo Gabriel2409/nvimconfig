@@ -1,6 +1,10 @@
 -- local colorscheme = "monokai_pro"
-local colorscheme = "tokyonight"
+local colorscheme = "sonokai"
+-- local colorscheme = "tokyonight"
+-- local colorscheme = "gruvbox"
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+
+vim.cmd([[hi Matchparen guibg=#aaaaaa]]) -- set matching parenthesis bgcolor
 
 if not status_ok then
 	vim.notify("colorscheme " .. colorscheme .. " not found")

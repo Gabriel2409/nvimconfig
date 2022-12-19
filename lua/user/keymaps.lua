@@ -71,4 +71,4 @@ keymap("n", "<A-S-f>", ":lua vim.lsp.buf.format({timeout_ms = 2000})<cr>", opts)
 vim.cmd([[cnoremap <expr>%% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
 
 -- R mapping with _
-vim.cmd([[let R_assign=2]])
+vim.cmd([[let R_assign=0]])
