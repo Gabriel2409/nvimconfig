@@ -52,14 +52,13 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye") -- check if still needed
+	use("moll/vim-bbye") -- used for Bdelete: closes the buffer without messing windows
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
+	use("lukas-reineke/indent-blankline.nvim") -- show context line
 	use("goolord/alpha-nvim")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim")
 	use({
 		"kylechui/nvim-surround",
@@ -93,26 +92,36 @@ return packer.startup(function(use)
 	use("ellisonleao/gruvbox.nvim")
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-
-	-- snippets
-	-- use("L3MON4D3/LuaSnip") --snippet engine
-	-- use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	use({ -- Autocompletion
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lua",
+		},
+	})
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enableLSP
-	use("williamboman/mason.nvim") -- same as above but for everything including lsp
-	use("williamboman/mason-lspconfig.nvim") -- allows better compatibility between lspconfig and mason
+	use({ -- LSP Configuration & Plugins
+		"neovim/nvim-lspconfig",
+		requires = {
+			-- Automatically install LSPs to stdpath for neovim
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			-- Useful status updates for LSP
+			"j-hui/fidget.nvim",
+		},
+	})
 
 	--use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+
+	-- diagnostics on virtual lines below text
 	use({
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function()
@@ -139,8 +148,8 @@ return packer.startup(function(use)
 	})
 	use("nvim-treesitter/nvim-treesitter-context")
 
-	use("p00f/nvim-ts-rainbow")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("p00f/nvim-ts-rainbow") -- config in treesiter
+	use("JoosepAlviste/nvim-ts-context-commentstring") -- modifies behavior of comment plugin
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
