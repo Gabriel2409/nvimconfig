@@ -72,7 +72,6 @@ local setup = {
 local opts = {
 	mode = "n", -- NORMAL mode
 	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = true, -- use `nowait` when creating keymaps
@@ -84,13 +83,12 @@ local mappings = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
 	},
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["E"] = { "<cmd>NvimTreeFindFile<cr>", "Focus File" },
+	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
+	["E"] = { "<cmd>Neotree toggle reveal<cr>", "Focus File" },
 	["j"] = { "<cmd>foldopen<cr>", "Open fold" },
 	["J"] = { "zO", "Open all folds below cursor" },
 	["k"] = { "<cmd>foldclose<cr>", "Close fold" },
 	["K"] = { "zC", "Close all folds below cursor" },
-	["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["p"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",
@@ -102,6 +100,7 @@ local mappings = {
 	["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["F"] = { "<cmd>lua require('spectre').open()<cr>", "Search and replace" },
 	["m"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Manage projects" },
+
 	-- ["r"] = { "<cmd>Telescope oldfiles<cr><esc>", "Open recent" },
 	['"'] = { "<cmd>Telescope registers<cr><esc>", "Registers" },
 	["/"] = { "<cmd>CommentToggle<CR>", "Comments" },
@@ -131,14 +130,6 @@ local mappings = {
 		o = { "<cmd>OverseerToggle<cr>", "Toggle task panel" },
 		t = { "<cmd>OverseerRun<cr>", "Run task" },
 	},
-	M = {
-		name = "Manage Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
-	},
 
 	g = {
 		name = "Git",
@@ -162,7 +153,6 @@ local mappings = {
 			"Diff",
 		},
 	},
-
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -219,7 +209,6 @@ local mappings = {
 local r_opts = {
 	mode = "n", -- NORMAL mode
 	prefix = "<localleader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
 	noremap = true, -- use `noremap` when creating keymaps
 	nowait = true, -- use `nowait` when creating keymaps
