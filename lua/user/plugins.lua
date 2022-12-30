@@ -122,6 +122,9 @@ lazy.setup({
 		end,
 	},
 
+	-- better quickfix
+	"kevinhwang91/nvim-bqf",
+
 	-- highlight of args
 	{
 		"m-demare/hlargs.nvim",

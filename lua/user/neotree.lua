@@ -20,7 +20,7 @@ neotree.setup({
 		},
 	},
 	window = {
-		position = "float",
+		position = "left",
 		mappings = {
 			["h"] = "close_node",
 			["l"] = "open",
