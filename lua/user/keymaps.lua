@@ -46,8 +46,10 @@ keymap("v", "<C-_>", ":CommentToggle<CR>", opts)
 vim.cmd([[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']])
 
 -- Navigate buffers
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+-- keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+-- keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "[b", ":bprevious<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", opts)
 
 -- Telescope
 keymap(

@@ -16,9 +16,9 @@ elseif colorscheme == "monokai_pro" then
     ]])
 
 	-- change word color lsp
-	vim.cmd([[
-         highlight LspReferenceRead guibg=#555555
-         highlight LspReferenceText guibg=#555555
-         highlight LspReferenceWrite guibg=#555555
-        ]])
+	-- vim.cmd([[
+	--          highlight LspReferenceRead guibg=#555555
+	--          highlight LspReferenceText guibg=#555555
+	--          highlight LspReferenceWrite guibg=#555555
+	--         ]])
 end
