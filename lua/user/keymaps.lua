@@ -39,8 +39,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- toggle comment
-keymap("n", "<C-_>", ":CommentToggle<CR>", opts)
-keymap("v", "<C-_>", ":CommentToggle<CR>", opts)
+keymap("n", "<C-_>", ":lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("v", "<C-_>", ":lua require('Comment.api').toggle.linewise('V')<CR>", opts)
 
 -- tabout
 vim.cmd([[inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>']])
