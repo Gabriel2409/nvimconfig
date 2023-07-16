@@ -27,13 +27,11 @@ vim.cmd([[
 
 -- Install your plugins here
 lazy.setup({
-	-- Have packer manage itself
-	"wbthomason/packer.nvim",
-
 	-- Plugins required by a lot of plugins
 	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
-
+	-- lua plugin development
+	"folke/neodev.nvim",
 	-- tree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -43,9 +41,9 @@ lazy.setup({
 			"MunifTanjim/nui.nvim",
 		},
 	},
-
 	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-	"terrortylor/nvim-comment", -- Easily comment stuff
+	-- "terrortylor/nvim-comment", -- Easily comment stuff
+	"numToStr/Comment.nvim",
 	"akinsho/bufferline.nvim",
 	"moll/vim-bbye", -- used for Bdelete: closes the buffer without messing windows
 	"nvim-lualine/lualine.nvim",
@@ -61,21 +59,16 @@ lazy.setup({
 			require("nvim-surround").setup({})
 		end,
 	},
-
 	-- marks
 	"chentoast/marks.nvim",
-
 	-- debugger
 	"mfussenegger/nvim-dap",
 	"theHamsta/nvim-dap-virtual-text",
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
-
 	-- tasks
 	"stevearc/overseer.nvim",
-
 	--R
 	"jalvesaq/Nvim-R",
-
 	-- Colorschemes
 	"lunarvim/darkplus.nvim",
 	"tomasr/molokai",
@@ -85,7 +78,6 @@ lazy.setup({
 	{ url = "https://gitlab.com/__tpb/monokai-pro.nvim" },
 	"folke/tokyonight.nvim",
 	"ellisonleao/gruvbox.nvim",
-
 	-- cmp plugins
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
@@ -99,7 +91,6 @@ lazy.setup({
 			"hrsh7th/cmp-nvim-lua",
 		},
 	},
-
 	-- LSP
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
@@ -111,20 +102,17 @@ lazy.setup({
 			"j-hui/fidget.nvim",
 		},
 	},
-
 	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
-
 	-- diagnostics on virtual lines below text
-	{
-		url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-		end,
-	},
+	-- {
+	-- 	url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	-- 	end,
+	-- },
 
 	-- better quickfix
 	"kevinhwang91/nvim-bqf",
-
 	-- highlight of args
 	{
 		"m-demare/hlargs.nvim",
@@ -133,23 +121,18 @@ lazy.setup({
 	-- Telescope
 	"nvim-telescope/telescope.nvim",
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-
 	-- Spectre
 	"windwp/nvim-spectre",
-
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
 	"nvim-treesitter/nvim-treesitter-context",
-
 	"p00f/nvim-ts-rainbow", -- config in treesiter
 	"JoosepAlviste/nvim-ts-context-commentstring", -- modifies behavior of comment plugin
-
 	-- Git
 	"lewis6991/gitsigns.nvim",
-
 	-- markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
@@ -157,11 +140,14 @@ lazy.setup({
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	-- 	if PACKER_BOOTSTRAP then
-	-- 		require("packer").sync()
-	-- 	end
-	-- end
+	-- {
+	-- 	"tpope/vim-dadbod",
+	-- 	dependencies = { "kristijanhusak/vim-dadbod-ui", "kristijanhusak/vim-dadbod-completion" },
+	-- },
+	-- {
+	-- 	"ellisonleao/dotenv.nvim",
+	-- 	config = function()
+	-- 		require("dotenv").setup({})
+	-- 	end,
+	-- },
 })

@@ -18,8 +18,10 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.styler,
 		formatting.shfmt,
+		-- formatting.sql_formatter,
 		diagnostics.flake8,
 		diagnostics.eslint,
+		diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

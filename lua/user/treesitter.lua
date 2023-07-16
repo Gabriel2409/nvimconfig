@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "r" },
+	-- ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "r" },
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	autopairs = {
@@ -24,7 +24,7 @@ configs.setup({
 		-- colors = { "#FF6188", "#FC9867", "#FFD866", "#A9DC76", "#78DCE8", "#AB9DF2" }, -- table of hex strings
 		-- termcolors = {} -- table of colour name strings
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	indent = { enable = true, disable = { "yaml", "python" } }, -- python seems to bug
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
