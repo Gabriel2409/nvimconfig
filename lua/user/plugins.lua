@@ -5,12 +5,12 @@ if not vim.loop.fs_stat(lazypath) then
 		"git",
 		"clone",
 		"--filter=blob:none",
-		"--single-branch",
 		"https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
 		lazypath,
 	})
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
@@ -18,12 +18,6 @@ if not status_ok then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup lazy_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua | Lazy sync
-  augroup end
-]])
 
 -- Install your plugins here
 lazy.setup({
@@ -31,12 +25,12 @@ lazy.setup({
 	"nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
 	"nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
 	-- lua plugin development
-	"folke/neodev.nvim",
 	-- tree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
+			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
@@ -113,11 +107,6 @@ lazy.setup({
 
 	-- better quickfix
 	"kevinhwang91/nvim-bqf",
-	-- highlight of args
-	{
-		"m-demare/hlargs.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-	},
 	-- Telescope
 	"nvim-telescope/telescope.nvim",
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -129,6 +118,11 @@ lazy.setup({
 		build = ":TSUpdate",
 	},
 	"nvim-treesitter/nvim-treesitter-context",
+	-- highlight of args
+	{
+		"m-demare/hlargs.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 	"p00f/nvim-ts-rainbow", -- config in treesiter
 	"JoosepAlviste/nvim-ts-context-commentstring", -- modifies behavior of comment plugin
 	-- Git

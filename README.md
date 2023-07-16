@@ -177,13 +177,31 @@ fi
 
 NOTE: alternatively, install and set up xdg-utils so that wsl can open a browser
 
+### Install cargo
+
+`sudo apt install cargo`
+then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
+
 ## Install neovim:
+
+### Hard way
 
 - Complete guide: https://github.com/neovim/neovim/wiki/Installing-Neovim
 - `sudo add-apt-repository ppa:neovim-ppa/unstable`
 - `sudo apt update`
 - `sudo apt install neovim`
 - check /etc/apt/sources.list.d and /etc/apt/trusted.gpg.d/ : neovim files should be here
+
+### Better way
+
+Use Bob: https://github.com/MordechaiHadad/bob: `cargo install --git https://github.com/MordechaiHadad/bob.git`
+then in ~/.bashrc:
+
+```bash
+export BOB_PATH="$HOME/.local/share/bob/nvim-bin"
+export PATH="$BOB_PATH:$PATH"
+alias vi="nvim"
+```
 
 - clone this repo in .config/nvim: `git clone git@github.com:Gabriel2409/nvimconfig.git ~/.config/nvim`
 - start neovim with `nvim`, go to config by pressing `c`, wait for install, go to `plugins.lua` and save to trigger all installs
@@ -198,8 +216,8 @@ NOTE: alternatively, install and set up xdg-utils so that wsl can open a browser
   - `chmod +x /tmp/win32yank.exe`
   - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
 
-
 ## NOTE FOR R projects with renv with nvim-r plugin
+
 libraries installed by Mason and nvimcom must be available.
 
 https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work

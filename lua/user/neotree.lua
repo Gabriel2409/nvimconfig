@@ -26,14 +26,14 @@ neotree.setup({
 			["l"] = "open",
 		},
 	},
-	event_handlers = {
-
-		{
-			event = "file_opened",
-			handler = function(file_path)
-				--auto close
-				neotree.close_all()
-			end,
-		},
-	},
+	-- event_handlers = {
+	--
+	-- 	{
+	-- 		event = "file_opened",
+	-- 		handler = function(file_path)
+	-- 			--auto close
+	-- 			neotree.close_all()
+	-- 		end,
+	-- 	},
+	-- },
 })
