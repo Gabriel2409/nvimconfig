@@ -3,6 +3,7 @@ require("user.keymaps")
 require("user.plugins")
 require("user.colorscheme")
 require("user.cmp")
+-- require("user.neodev") -- very slow
 require("user.lsp")
 require("user.hlargs")
 require("user.dap")
