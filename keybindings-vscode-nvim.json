@@ -59,44 +59,54 @@
 		},
 		"when": "!inQuickOpen && !suggestWidgetVisible"
 	},
-	// ------------------
-	// ---- NEOVIM ------
-	// ------------------
-	// remove keybindings
 	{
 		"key": "ctrl+k ctrl+i",
 		"command": "-editor.action.showHover",
 		"when": "editorTextFocus"
 	},
-	{
-		"key": "ctrl+c",
-		"command": "-vscode-neovim.escape",
-		"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
-	},
-	{
-		"key": "ctrl+c",
-		"command": "-vscode-neovim.escape",
-		"when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode == 'insert'"
-	},
-	// remap jj and jk to escape
-	{
-		"command": "vscode-neovim.compositeEscape1",
-		"key": "j",
-		"when": "neovim.mode == insert && editorTextFocus",
-		"args": "j"
-	},
-	{
-		"command": "vscode-neovim.compositeEscape2",
-		"key": "k",
-		"when": "neovim.mode == insert && editorTextFocus",
-		"args": "k"
-	},
-	// show hover
-	{
-		"key": "shift+k",
-		"command": "editor.action.showHover",
-		"when": "editorTextFocus && neovim.mode != insert"
-	},
+	// ------------------
+	// ---- NEOVIM ------
+	// ------------------
+	// // remove keybindings
+	// {
+	// 	"key": "ctrl+c",
+	// 	"command": "-vscode-neovim.escape",
+	// 	"when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+	// },
+	// {
+	// 	"key": "ctrl+c",
+	// 	"command": "-vscode-neovim.escape",
+	// 	"when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode == 'insert'"
+	// },
+	// // remap jj and jk to escape
+	// {
+	// 	"command": "vscode-neovim.compositeEscape1",
+	// 	"key": "j",
+	// 	"when": "neovim.mode == insert && editorTextFocus",
+	// 	"args": "j"
+	// },
+	// {
+	// 	"command": "vscode-neovim.compositeEscape2",
+	// 	"key": "k",
+	// 	"when": "neovim.mode == insert && editorTextFocus",
+	// 	"args": "k"
+	// },
+	// // show hover
+	// {
+	// 	"key": "shift+k",
+	// 	"command": "editor.action.showHover",
+	// 	"when": "editorTextFocus && neovim.mode != insert"
+	// },
+	// // ! neovim whichkey
+	// {
+	// 	"key": "space",
+	// 	"command": "whichkey.show",
+	// 	"when": "neovim.mode != 'insert' && neovim.mode != replace && editorFocus"
+	// },
+	// ------------------
+	// ----END NEOVIM ------
+	// ------------------
+
 	// autocompletion
 	{
 		"key": "ctrl+j",
@@ -107,12 +117,6 @@
 		"key": "ctrl+k",
 		"command": "selectPrevSuggestion",
 		"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-	},
-	// whichkey
-	{
-		"key": "space",
-		"command": "whichkey.show",
-		"when": "neovim.mode != 'insert' && neovim.mode != replace && editorFocus"
 	},
 	// navigate in command palette menu
 	{
@@ -162,6 +166,15 @@
 		"command": "search.focus.previousInputBox",
 		"when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
 	},
+	// ------------------
+	// ---- EXPLORER ----
+	// ------------------
+	{ "key": "a", "command": "explorer.newFile", "when": "explorerViewletFocus && !inputFocus" },
+	{ "key": "r", "command": "renameFile", "when": "explorerViewletFocus && !inputFocus" },
+	{ "key": "x", "command": "filesExplorer.cut", "when": "explorerViewletFocus && !inputFocus" },
+	{ "key": "d", "command": "deleteFile", "when": "explorerViewletFocus && !inputFocus" },
+	{ "key": "y", "command": "filesExplorer.copy", "when": "explorerViewletFocus && !inputFocus" },
+	{ "key": "p", "command": "filesExplorer.paste", "when": "explorerViewletFocus && !inputFocus" },
 
 	// -----------------
 	// --- NOTEBOOK ----
@@ -200,5 +213,11 @@
 		"key": "z",
 		"command": "-undo",
 		"when": "notebookEditorFocused && !inputFocus"
+	},
+	{
+		"key": "i",
+		"command": "notebook.cell.edit",
+		"when": "notebookCellListFocused && notebookEditable && !inputFocus"
 	}
 ]
+
