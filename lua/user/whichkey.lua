@@ -84,7 +84,7 @@ local mappings = {
 		"Buffers",
 	},
 	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-	["E"] = { "<cmd>Neotree toggle reveal<cr>", "Focus File" },
+	["E"] = { "<cmd>Neotree reveal<cr>", "Focus File" },
 	["j"] = { "<cmd>foldopen<cr>", "Open fold" },
 	["J"] = { "zO", "Open all folds below cursor" },
 	["k"] = { "<cmd>foldclose<cr>", "Close fold" },
