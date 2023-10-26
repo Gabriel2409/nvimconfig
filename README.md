@@ -189,6 +189,21 @@ This should also install cargo
 
 then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"` 
 
+
+## System clipboard for wsl
+
+- add copy to system clipboard: you need to install win32yank and xclip: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+
+  - `sudo apt install xclip`
+
+  - `curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip`
+  - `unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe`
+  - `chmod +x /tmp/win32yank.exe`
+  - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
+
+## System clipboard for ubuntu
+- You only need xclip: `sudo apt install xclip`
+
 ## Install neovim:
 
 ### Hard way
@@ -201,7 +216,9 @@ then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
 
 ### Better way
 
-Use Bob: https://github.com/MordechaiHadad/bob: `cargo install --git https://github.com/MordechaiHadad/bob.git`
+- Use Bob: https://github.com/MordechaiHadad/bob: `cargo install bob-nvim` 
+- then run `bob install stable` and `bob use stable`
+
 then in ~/.bashrc:
 
 ```bash
@@ -210,18 +227,20 @@ export PATH="$BOB_PATH:$PATH"
 alias vi="nvim"
 ```
 
+### Finally clone the repo
+
+
+I am now using LazyVim because I was tired of my config breaking on updates: `https://www.lazyvim.org/` and `https://github.com/LazyVim/LazyVim`
+I used to have a completely custom config. It is still available in nvim.bak but it probably won't work anymore
+
 - clone this repo in .config/nvim: `git clone git@github.com:Gabriel2409/nvimconfig.git ~/.config/nvim`
-- start neovim with `nvim`, go to config by pressing `c`, wait for install, go to `plugins.lua` and save to trigger all installs
+- start neovim with `nvim`, go to config by pressing `c`, wait for install, go to `plugins.lua` and save to trigger all installs (not needed anymore I think)
 - launch Mason in the command: `:Mason` to install language servers, formatters, etc
 
-- add copy to system clipboard: you need to install win32yank and xclip: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 
-  - `sudo apt install xclip`
+## Extra install 
 
-  - `curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip`
-  - `unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe`
-  - `chmod +x /tmp/win32yank.exe`
-  - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
+Install alacritty: `https://github.com/alacritty/alacritty` then in `.bashrc`: `source "$HOME/extra/completions/alacritty.bash"`
 
 ## NOTE FOR R projects with renv with nvim-r plugin
 
