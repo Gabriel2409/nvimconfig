@@ -181,8 +181,13 @@ NOTE: alternatively, install and set up xdg-utils so that wsl can open a browser
 
 ### Install cargo
 
-`sudo apt install cargo`
-then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
+- Install rustup: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+    NOTE: if rust is already installed: `sudo apt autoremove rustc`
+- run `rustup install stable` and `rustup default stable`
+
+This should also install cargo
+
+then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"` 
 
 ## Install neovim:
 

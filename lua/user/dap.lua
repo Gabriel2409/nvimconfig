@@ -34,6 +34,8 @@ dap.adapters.python = {
 	args = { "-m", "debugpy.adapter" },
 }
 -- by default will use the .vscode/launch.json file for configurations
+dap_vscode.json_decode = require("json5").parse
+
 dap_vscode.load_launchjs(".vscode/launch.json", { debugpy = { "python" } })
 
 local virt_status_ok, dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
