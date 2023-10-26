@@ -35,6 +35,8 @@ To make change permanent add the following to /etc/wsl.conf
 generateResolvConf=false
 ```
 
+Then run `sudo chattr +i /etc/resolv.conf` to prevent windows from deleting the file
+
 Then exit wsl and run `wsl --shutdown` in powershell BEFORE reconnecting
 
 - In case of SSL certs problems (for ex when dealing with zscaler):
