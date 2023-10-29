@@ -29,6 +29,6 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "<leader>z", "<cmd>NeoZoomToggle<cr>", { silent = true, nowait = true, desc = "jambon" })
+    vim.keymap.set("n", "<leader>z", "<cmd>NeoZoomToggle<cr>", { silent = true, nowait = true, desc = "Toggle Zoom" })
   end,
 }

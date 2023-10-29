@@ -1,3 +1,9 @@
+# TODO
+- jupynium fix
+- autopair fix
+
+
+
 # Install neovim on WSL
 
 ## WSL install
@@ -240,7 +246,31 @@ I used to have a completely custom config. It is still available in nvim.bak but
 
 ## Extra install 
 
-Install alacritty: `https://github.com/alacritty/alacritty` then in `.bashrc`: `source "$HOME/extra/completions/alacritty.bash"`
+### Alacritty
+
+- Install alacritty: `https://github.com/alacritty/alacritty` then in `.bashrc`: `source "$HOME/extra/completions/alacritty.bash"`
+
+
+### Jupyter notebooks
+- For the jupyter notebook plugin to work, you need to install the gecko driver for 
+firefox (so that selenium can interact with it), see `https://github.com/mozilla/geckodriver/releases`
+and move it to /usr/local/bin/:
+
+```bash
+curl -LO https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz
+tar -xvzf geckodriver-v0.33.0-linux64.tar.gz
+sudo mv geckodriver /usr/local/bin/
+```
+
+You may still have errors: see workaround here: `https://github.com/mozilla/geckodriver/releases/tag/v0.31.0`
+create a /tmp dir: `mkdir $HOME/tmp`
+then in .bashrc:
+`export TMPDIR=$HOME/tmp geckodriver`
+
+- Note: i did not install the package globally, you need to run `pip install ~/.local/share/nvim/lazy/jupynium.nvim/`
+in each virtual env before using it (shortcut space jI)
+
+
 
 ## NOTE FOR R projects with renv with nvim-r plugin
 
