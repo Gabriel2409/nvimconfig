@@ -82,7 +82,7 @@ return {
       },
       {
         mode = { "n", "x", "o" },
-        "<space>jj",
+        "<space>jn",
         "<cmd>lua require'jupynium.textobj'.goto_current_cell_separator()<cr>",
         desc = "Go to current Jupynium cell",
       },
