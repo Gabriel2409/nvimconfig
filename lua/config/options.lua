@@ -10,3 +10,4 @@ opt.colorcolumn = "80,81,82,83,84,85,86,87,88" -- editor ruler (88 is black limi
 opt.formatoptions = "jcqlnt"
 opt.scrolloff = 8 -- Lines of context
 opt.spelllang = { "en" }
+opt.swapfile = false

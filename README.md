@@ -137,7 +137,7 @@ export PATH=$PATH:$GOBIN
 
 ### Install lazygit
 
-go install github.com/jesseduffield/lazygit@latest
+`go install github.com/jesseduffield/lazygit@latest`
 
 ### Install pyenv
 
@@ -167,23 +167,8 @@ cert=/etc/ssl/certs/zscaler-root-ca.pem
 `sudo apt install ripgrep`
 
 ### optional: installs for plots (matplotlib, R and nvim-R plugin...)
-
-- see https://stackoverflow.com/questions/43397162/show-matplotlib-plots-and-other-gui-in-ubuntu-wsl1-wsl2/43399827#43399827
-- install VcXsrv
-- launch it with Disable access control ticked
-- add this to .bashrc to show whether or not display is available
-
-```bash
-export DISPLAY=$(grep -oP "(?<=nameserver ).+" /etc/resolv.conf):0.0
-if timeout 2 xhost &> /dev/null; then
-	:
-else
-	echo "DISPLAY unavailable"
-	export DISPLAY=
-fi
-```
-
-NOTE: alternatively, install and set up xdg-utils so that wsl can open a browser
+- wsl now supports GUI: see `https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps`
+- NO need to install VcXsrv and modify DISPLAY anymore in `.bashrc`
 
 ### Install cargo
 
@@ -270,6 +255,11 @@ then in .bashrc:
 - Note: i did not install the package globally, you need to run `pip install ~/.local/share/nvim/lazy/jupynium.nvim/`
 in each virtual env before using it (shortcut space jI)
 
+- If there are errors, test that selenium correctly works:
+```python
+from selenium import webdriver
+webdriver.Firefox()
+```
 
 
 ## NOTE FOR R projects with renv with nvim-r plugin
