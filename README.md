@@ -262,6 +262,16 @@ webdriver.Firefox()
 ```
 
 
+### Good rust plugins for better terminal experience
+- see https://www.youtube.com/watch?v=dFkGNe4oaKk
+
+- `cargo install bat`: drop-in replacement for  `cat`: `https://github.com/sharkdp/bat`
+- `cargo install du-dust`: better `du`: `https://github.com/bootandy/dust`
+- `cargo install starship`: better prompt: `https://starship.rs/`
+- `cargo install eza`: better ls: `https://github.com/eza-community/eza`
+- `cargo install irust`: rust REPL: `https://github.com/sigmaSd/IRust`
+
+
 ## NOTE FOR R projects with renv with nvim-r plugin
 
 libraries installed by Mason and nvimcom must be available.
