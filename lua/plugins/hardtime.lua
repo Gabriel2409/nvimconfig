@@ -6,6 +6,18 @@ vim.cmd([[
   augroup END
 ]])
 
+-- very hacky because plugin does not expose status
+local isHardtimeEnabled = true
+function Toggle_hardtime()
+  require("hardtime").toggle()
+  if isHardtimeEnabled then
+    require("notify")("Hardtime disabled", "warn", { title = "Options" })
+  else
+    require("notify")("Hardtime enabled", nil, { title = "Options" })
+  end
+  isHardtimeEnabled = not isHardtimeEnabled
+end
+
 return {
   -- can't seem to enable it at startup for some reason
   {
@@ -19,7 +31,7 @@ return {
       {
         mode = { "n" },
         "<leader>uH",
-        "<cmd>lua require('hardtime').toggle()<cr>",
+        "<cmd>lua Toggle_hardtime()<cr>",
         desc = "Toggle Hardtime",
       },
     },
