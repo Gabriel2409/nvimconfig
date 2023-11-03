@@ -10,10 +10,13 @@ vim.cmd([[
 local isHardtimeEnabled = true
 function Toggle_hardtime()
   require("hardtime").toggle()
+  local Util = require("lazy.core.util")
   if isHardtimeEnabled then
-    require("notify")("Hardtime disabled", "warn", { title = "Options" })
+    Util.warn("Hardtime disabled", { title = "Option" })
+    -- require("notify")("Hardtime disabled", "warn", { title = "Options" })
   else
-    require("notify")("Hardtime enabled", nil, { title = "Options" })
+    Util.info("Hardtime enabled", { title = "Option" })
+    -- require("notify")("Hardtime enabled", nil, { title = "Options" })
   end
   isHardtimeEnabled = not isHardtimeEnabled
 end
