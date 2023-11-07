@@ -5,6 +5,9 @@
 local keymap = vim.keymap.set
 local delkeymap = vim.keymap.del
 
+-- better yank
+keymap("n", "Y", "y$", { noremap = true, silent = true })
+
 -- remap ctrl c to copy to system clipboard
 keymap("n", "<C-c>", '"+yy', { noremap = true, silent = true })
 keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
