@@ -24,7 +24,8 @@ keymap("i", "<c-s>", "<esc><cmd>noautocmd w<CR>a", {})
 keymap(
   "n",
   "<C-p>",
-  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  -- ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  ":lua require('telescope.builtin').find_files({find_command={'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
   { noremap = true, silent = true }
 )
 
