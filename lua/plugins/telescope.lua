@@ -3,6 +3,17 @@ local actions = require("telescope.actions")
 return {
   {
     "nvim-telescope/telescope.nvim",
+    config = function()
+      require("telescope").setup({
+        pickers = {
+          live_grep = {
+            additional_args = function(opts)
+              return { "--hidden", "-g", "!.git" }
+            end,
+          },
+        },
+      })
+    end,
     opts = {
       defaults = {
         mappings = {
