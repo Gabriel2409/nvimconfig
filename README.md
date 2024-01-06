@@ -1,8 +1,7 @@
 # TODO
+
 - jupynium fix
 - autopair fix
-
-
 
 # Install neovim on WSL
 
@@ -162,24 +161,43 @@ Note: if you are running behind zscaler, you must create a .pip/pip.conf file:
 cert=/etc/ssl/certs/zscaler-root-ca.pem
 ```
 
+### Install pipx
+
+https://github.com/pypa/pipx
+
+- very clean way to have global python packages available in the shell
+
+```bash
+sudo apt update
+sudo apt install pipx
+pipx ensurepath
+```
+
+- I added in `.bashrc`: `export PIPX_DEFAULT_PYTHON=python` to make sure that it uses
+  the python version exposed by pyenv
+
+A utility I like to have installed globally is cookiecutter: see https://github.com/cookiecutter/cookiecutter
+
+Either install it with pipx: `pipx install cookiecutter` and use it with `cookiecutter ...` or use `pipx run cookiecutter ...` to run it even if it is not installed
+
 ### install ripgrep
 
 `sudo apt install ripgrep`
 
 ### optional: installs for plots (matplotlib, R and nvim-R plugin...)
+
 - wsl now supports GUI: see `https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps`
 - NO need to install VcXsrv and modify DISPLAY anymore in `.bashrc`
 
 ### Install cargo
 
 - Install rustup: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-    NOTE: if rust is already installed: `sudo apt autoremove rustc`
+  NOTE: if rust is already installed: `sudo apt autoremove rustc`
 - run `rustup install stable` and `rustup default stable`
 
 This should also install cargo
 
-then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"` 
-
+then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
 
 ## System clipboard for wsl
 
@@ -193,6 +211,7 @@ then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
   - `sudo mv /tmp/win32yank.exe /usr/local/bin/`
 
 ## System clipboard for ubuntu
+
 - You only need xclip: `sudo apt install xclip`
 
 ## Install neovim:
@@ -207,7 +226,7 @@ then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
 
 ### Better way
 
-- Use Bob: https://github.com/MordechaiHadad/bob: `cargo install bob-nvim` 
+- Use Bob: https://github.com/MordechaiHadad/bob: `cargo install bob-nvim`
 - then run `bob install stable` and `bob use stable`
 
 then in ~/.bashrc:
@@ -220,7 +239,6 @@ alias vi="nvim"
 
 ### Finally clone the repo
 
-
 I am now using LazyVim because I was tired of my config breaking on updates: `https://www.lazyvim.org/` and `https://github.com/LazyVim/LazyVim`
 I used to have a completely custom config. It is still available in nvim.bak but it probably won't work anymore
 
@@ -228,18 +246,17 @@ I used to have a completely custom config. It is still available in nvim.bak but
 - start neovim with `nvim`, go to config by pressing `c`, wait for install, go to `plugins.lua` and save to trigger all installs (not needed anymore I think)
 - launch Mason in the command: `:Mason` to install language servers, formatters, etc
 
-
-## Extra install 
+## Extra install
 
 ### Alacritty
 
 - Install alacritty: `https://github.com/alacritty/alacritty` then in `.bashrc`: `source "$HOME/extra/completions/alacritty.bash"`
 
-
 ### Jupyter notebooks
-- For the jupyter notebook plugin to work, you need to install the gecko driver for 
-firefox (so that selenium can interact with it), see `https://github.com/mozilla/geckodriver/releases`
-and move it to /usr/local/bin/:
+
+- For the jupyter notebook plugin to work, you need to install the gecko driver for
+  firefox (so that selenium can interact with it), see `https://github.com/mozilla/geckodriver/releases`
+  and move it to /usr/local/bin/:
 
 ```bash
 curl -LO https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz
@@ -253,24 +270,24 @@ then in .bashrc:
 `export TMPDIR=$HOME/tmp geckodriver`
 
 - Note: i did not install the package globally, you need to run `pip install ~/.local/share/nvim/lazy/jupynium.nvim/`
-in each virtual env before using it (shortcut space jI)
+  in each virtual env before using it (shortcut space jI)
 
 - If there are errors, test that selenium correctly works:
+
 ```python
 from selenium import webdriver
 webdriver.Firefox()
 ```
 
-
 ### Good rust plugins for better terminal experience
+
 - see https://www.youtube.com/watch?v=dFkGNe4oaKk
 
-- `cargo install bat`: drop-in replacement for  `cat`: `https://github.com/sharkdp/bat`
+- `cargo install bat`: drop-in replacement for `cat`: `https://github.com/sharkdp/bat`
 - `cargo install du-dust`: better `du`: `https://github.com/bootandy/dust`
 - `cargo install starship`: better prompt: `https://starship.rs/`
 - `cargo install eza`: better ls: `https://github.com/eza-community/eza`
 - `cargo install irust`: rust REPL: `https://github.com/sigmaSd/IRust`
-
 
 ## NOTE FOR R projects with renv with nvim-r plugin
 
