@@ -1,20 +1,20 @@
 return {
   {
-    "stevearc/overseer.nvim",
+    'stevearc/overseer.nvim',
     config = function()
-      require("overseer").setup()
+      require('overseer').setup()
     end,
     keys = {
-      { mode = { "n" }, "<leader>oe", "<cmd>OverseerToggle<CR>", desc = "Overseer explorer" },
-      { mode = { "n" }, "<leader>or", "<cmd>OverseerRun<CR>", desc = "Run task" },
+      { mode = { 'n' }, '<leader>oe', '<cmd>OverseerToggle<CR>', desc = 'Overseer explorer' },
+      { mode = { 'n' }, '<leader>or', '<cmd>OverseerRun<CR>', desc = 'Run task' },
     },
   },
   {
-    "folke/which-key.nvim",
+    'folke/which-key.nvim',
     opts = {
       defaults = {
-        mode = { "n" },
-        ["<leader>o"] = { name = "+overseer" },
+        mode = { 'n' },
+        ['<leader>o'] = { name = '+overseer' },
       },
     },
   },

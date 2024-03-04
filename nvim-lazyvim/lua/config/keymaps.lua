@@ -6,24 +6,24 @@ local keymap = vim.keymap.set
 local delkeymap = vim.keymap.del
 
 -- better yank
-keymap("n", "Y", "y$", { noremap = true, silent = true })
+keymap('n', 'Y', 'y$', { noremap = true, silent = true })
 
 -- remap ctrl c to copy to system clipboard
-keymap("n", "<C-c>", '"+yy', { noremap = true, silent = true })
-keymap("v", "<C-c>", '"+y', { noremap = true, silent = true })
+keymap('n', '<C-c>', '"+yy', { noremap = true, silent = true })
+keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
 -- remap ctrl v to paste from system clipboard
-keymap("n", "<C-v>", '"+p', { noremap = true, silent = true })
-keymap("v", "<C-v>", '"+p', { noremap = true, silent = true })
-keymap("i", "<C-v>", "<C-r>+", { noremap = true, silent = true })
+keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
+keymap('v', '<C-v>', '"+p', { noremap = true, silent = true })
+keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 
 -- ctrl s to save without formatting
-keymap("n", "<c-s>", "<cmd>noautocmd w<CR>", {})
-keymap("i", "<c-s>", "<esc><cmd>noautocmd w<CR>a", {})
+keymap('n', '<c-s>', '<cmd>noautocmd w<CR>', {})
+keymap('i', '<c-s>', '<esc><cmd>noautocmd w<CR>a', {})
 
 -- Telescope
 keymap(
-  "n",
-  "<C-p>",
+  'n',
+  '<C-p>',
   -- ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
   ":lua require('telescope.builtin').find_files({find_command={'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
   { noremap = true, silent = true }
@@ -37,19 +37,19 @@ keymap(
 -- )
 
 -- Format
-keymap("n", "<A-S-f>", ":lua vim.lsp.buf.format({timeout_ms = 2000})<cr>", { noremap = true, silent = true })
-keymap("i", "<esc><A-S-f>", ":lua vim.lsp.buf.format({timeout_ms = 2000})<cr>", { noremap = true, silent = true })
+keymap('n', '<A-S-f>', '<cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
+keymap('i', '<A-S-f>', '<esc><cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
 
 -- extra surround keymaps
-vim.api.nvim_set_keymap("x", "S", [[:<C-u>lua MiniSurround.add('visual')<CR>]], { noremap = true })
-vim.api.nvim_set_keymap("n", "yss", "ys_", { noremap = false })
+vim.api.nvim_set_keymap('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { noremap = true })
+vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 
 -- TODO
 -- fix tabout
 --
 
 -- Remove lazyvim overwriting defaults
-delkeymap("n", "<S-h>")
-delkeymap("n", "<S-l>")
-delkeymap("n", "n")
-delkeymap("n", "N")
+delkeymap('n', '<S-h>')
+delkeymap('n', '<S-l>')
+delkeymap('n', 'n')
+delkeymap('n', 'N')

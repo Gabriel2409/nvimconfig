@@ -1,6 +1,6 @@
 return {
-  "ThePrimeagen/harpoon",
-  branch = "harpoon2",
+  'ThePrimeagen/harpoon',
+  branch = 'harpoon2',
   opts = {
     menu = {
       width = vim.api.nvim_win_get_width(0) - 4,
@@ -8,19 +8,19 @@ return {
   },
   keys = {
     {
-      "<leader>H",
+      '<leader>H',
       function()
-        require("harpoon"):list():append()
+        require('harpoon'):list():append()
       end,
-      desc = "Harpoon file",
+      desc = 'Harpoon file',
     },
     {
-      "<leader>h",
+      '<leader>h',
       function()
-        local harpoon = require("harpoon")
+        local harpoon = require 'harpoon'
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
-      desc = "Harpoon quick menu",
+      desc = 'Harpoon quick menu',
     },
   },
 }
