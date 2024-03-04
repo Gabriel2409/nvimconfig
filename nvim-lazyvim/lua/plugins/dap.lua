@@ -16,7 +16,7 @@ local function file_exists(name)
 end
 
 local venv_file = os.getenv 'PWD' .. '/venv/bin/python'
-local default_config_file = os.getenv 'HOME' .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+local default_config_file = os.getenv 'HOME' .. '/.local/share/nvim/nvim-lazyvim/mason/packages/debugpy/venv/bin/python'
 local file_to_use
 if file_exists(venv_file) then
   file_to_use = venv_file
