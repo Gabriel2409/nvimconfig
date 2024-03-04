@@ -227,24 +227,35 @@ then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
 ### Better way
 
 - Use Bob: https://github.com/MordechaiHadad/bob: `cargo install bob-nvim`
-- then run `bob install stable` and `bob use stable`
+- then run `bob install stable` and `bob use stable` (or `nightly`)
 
 then in ~/.bashrc:
 
 ```bash
 export BOB_PATH="$HOME/.local/share/bob/nvim-bin"
 export PATH="$BOB_PATH:$PATH"
-alias vi="nvim"
 ```
 
 ### Finally clone the repo
 
-I am now using LazyVim because I was tired of my config breaking on updates: `https://www.lazyvim.org/` and `https://github.com/LazyVim/LazyVim`
-I used to have a completely custom config. It is still available in nvim.bak but it probably won't work anymore
-
 - clone this repo in .config/nvim: `git clone git@github.com:Gabriel2409/nvimconfig.git ~/.config/nvim`
-- start neovim with `nvim`, go to config by pressing `c`, wait for install, go to `plugins.lua` and save to trigger all installs (not needed anymore I think)
-- launch Mason in the command: `:Mason` to install language servers, formatters, etc
+
+I maintain several configs in different subfolders: see `https://michaeluloth.com/neovim-switch-configs/`
+
+- Default config is an empty init.lua
+- LazyVim config is in nvim-lazyvim folder (`https://www.lazyvim.org/`)
+- Completely personal config is in nvim-kickstart folder (`https://github.com/nvim-lua/kickstart.nvim`)
+
+- add these in your .bashrc:
+
+```bash
+alias vi="NVIM_APPNAME=nvim/nvim-lazyvim nvim"
+alias vk="NVIM_APPNAME=nvim/nvim-kickstart nvim"
+```
+
+`vi` will launch lazyvim config, `vk` will launch kickstart config and `nvim` will launch native nvim
+
+- Note: launch Mason in the command: `:Mason` to install language servers, formatters, etc
 
 ## Extra install
 
