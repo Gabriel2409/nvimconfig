@@ -244,7 +244,7 @@ I maintain several configs in different subfolders: see `https://michaeluloth.co
 
 - Default config is an empty init.lua
 - LazyVim config is in nvim-lazyvim folder (`https://www.lazyvim.org/`)
-- Completely personal config is in nvim-kickstart folder (`https://github.com/nvim-lua/kickstart.nvim`)
+- Completely personal config is in nvim-kickstart folder (`https://github.com/nvim-lua/kickstart.nvim` and `https://github.com/dam9000/kickstart-modular.nvim`)
 
 - add these in your .bashrc:
 
