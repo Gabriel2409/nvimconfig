@@ -257,6 +257,8 @@ alias vk="NVIM_APPNAME=nvim/nvim-kickstart nvim"
 
 - Note: launch Mason in the command: `:Mason` to install language servers, formatters, etc
 
+- NOTE: each config will have its own local directory, for ex `~/.local/share/nvim/nvim-kickstart`
+
 ## Extra install
 
 ### Alacritty
