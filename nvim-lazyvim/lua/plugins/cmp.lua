@@ -31,6 +31,7 @@ return {
       local cmp = require 'cmp'
 
       opts.mapping = vim.tbl_extend('force', opts.mapping, {
+        ['<CR>'] = {}, -- enter should not select
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm { select = true }
@@ -44,8 +45,8 @@ return {
             fallback()
           end
         end, { 'i', 's' }),
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
+        -- ['<C-k>'] = cmp.mapping.select_prev_item(),
+        -- ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-Space>'] = cmp.mapping {
           i = function()
             if cmp.visible() then
