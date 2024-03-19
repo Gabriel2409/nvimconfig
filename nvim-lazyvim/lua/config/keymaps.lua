@@ -48,6 +48,18 @@ vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 -- fix tabout
 --
 
+-- open neotree directory for current file
+keymap('n', '<leader>E', "<cmd>Neotree reveal_force_cwd<cr>",
+  { desc = 'Open current file dir', noremap = true, silent = true })
+
+-- change directory (helps when searching with telescope within library)
+vim.api.nvim_set_keymap('n', '<leader>se', [[:lcd <C-r>=expand('%:h')<CR><CR>]],
+  { noremap = true, desc = 'Change directory' })
+
+
+vim.cmd([[cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
+
+
 -- Remove lazyvim overwriting defaults
 delkeymap('n', '<S-h>')
 delkeymap('n', '<S-l>')
