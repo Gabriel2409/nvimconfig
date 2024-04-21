@@ -199,6 +199,47 @@ This should also install cargo
 
 then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
 
+### Install tmux
+
+- great way to get started: https://www.youtube.com/watch?v=DzNmUNvnB04
+- https://tmuxcheatsheet.com/
+
+In .bashrc, add:
+`export XDG_CONFIG_HOME=$HOME/.config`
+
+and in `$XDG_CONFIG_HOME/tmux/tmux.conf`, add
+
+```bash
+# fix nvim colors
+set-option -sa terminal-overrides ",xterm*:Tc"
+# mouse support
+set -g mouse on
+
+set -g @plugin 'tmux-plugins/tpm' # package manager
+set -g @plugin 'tmux-plugins/tmux-sensible' # better defaults
+set -g @plugin 'christoomey/vim-tmux-navigator' # navigte panes like in vim
+set -g @plugin 'catppuccin/tmux' # catppuccin colorscheme
+# set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
+
+set -g @plugin 'tmux-plugins/tmux-yank' # yank text with y
+
+# set vi-mode
+set-window-option -g mode-keys vi
+# keybindings for copy-mode (enter copy-mode with <c-[> )
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# Open panes in current dir
+bind '"' split-window -v -c "#{pane_current_path}"
+bind '%' split-window -h -c "#{pane_current_path}"
+
+# detach on ctrl d instead of kill
+bind-key -n C-d detach
+
+run '~/.tmux/plugins/tpm/tpm'
+```
+
 ## System clipboard for wsl
 
 - add copy to system clipboard: you need to install win32yank and xclip: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl

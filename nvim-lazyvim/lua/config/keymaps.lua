@@ -48,17 +48,30 @@ vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 -- fix tabout
 --
 
+-- tmux integration
+
+keymap('n', '<c-h>', '<cmd>TmuxNavigateLeft<cr>', { noremap = true, silent = true })
+keymap('n', '<c-l>', '<cmd>TmuxNavigateRight<cr>', { noremap = true, silent = true })
+keymap('n', '<c-j>', '<cmd>TmuxNavigateDown<cr>', { noremap = true, silent = true })
+keymap('n', '<c-k>', '<cmd>TmuxNavigateUp<cr>', { noremap = true, silent = true })
+
 -- open neotree directory for current file
-keymap('n', '<leader>E', "<cmd>Neotree reveal_force_cwd<cr>",
-  { desc = 'Open current file dir', noremap = true, silent = true })
+keymap(
+  'n',
+  '<leader>E',
+  '<cmd>Neotree reveal_force_cwd<cr>',
+  { desc = 'Open current file dir', noremap = true, silent = true }
+)
 
 -- change directory (helps when searching with telescope within library)
-vim.api.nvim_set_keymap('n', '<leader>se', [[:lcd <C-r>=expand('%:h')<CR><CR>]],
-  { noremap = true, desc = 'Change directory' })
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>se',
+  [[:lcd <C-r>=expand('%:h')<CR><CR>]],
+  { noremap = true, desc = 'Change directory' }
+)
 
-
-vim.cmd([[cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%']])
-
+vim.cmd [[cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%']]
 
 -- Remove lazyvim overwriting defaults
 delkeymap('n', '<S-h>')
