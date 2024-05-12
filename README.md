@@ -81,6 +81,8 @@ set completion-ignore-case on
 set colored-completion-prefix on
 ```
 
+- at the end of bashrc: `export ignoreeof=1` to avoid accidently exiting shell with ctrl d
+
 ## Install packages
 
 - `sudo apt update`
