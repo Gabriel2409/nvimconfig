@@ -67,7 +67,7 @@ return {
   keys = {
     {
       mode = { 'n' },
-      '<leader>gu',
+      '<leader>uu',
       '<cmd>lua Toggle_Ufo()<cr>',
       desc = 'Toggle Ufo ',
     },
