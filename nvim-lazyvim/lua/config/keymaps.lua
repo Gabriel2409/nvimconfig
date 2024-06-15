@@ -8,6 +8,9 @@ local delkeymap = vim.keymap.del
 -- better yank
 keymap('n', 'Y', 'y$', { noremap = true, silent = true })
 
+-- copy content of unnamed register to system clipboard
+vim.api.nvim_set_keymap('n', '<leader>y', [[:let @+ =@"<CR>]], { noremap = true, desc = 'Change directory' })
+
 -- remap ctrl c to copy to system clipboard
 keymap('n', '<C-c>', '"+yy', { noremap = true, silent = true })
 keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
