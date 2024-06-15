@@ -24,19 +24,19 @@ return {
         ['<CR>'] = {},
 
         -- tab to select current
-        -- ['<Tab>'] = cmp.mapping(function(fallback)
-        --   if cmp.visible() then
-        --     cmp.confirm { select = true }
-        --   elseif luasnip.expandable() then
-        --     luasnip.expand()
-        --   elseif luasnip.expand_or_jumpable() then
-        --     luasnip.expand_or_jump()
-        --   elseif check_backspace() then
-        --     fallback()
-        --   else
-        --     fallback()
-        --   end
-        -- end, { 'i', 's' }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm { select = true }
+          elseif luasnip.expandable() then
+            luasnip.expand()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif check_backspace() then
+            fallback()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
 
         -- ['<C-k>'] = cmp.mapping.select_prev_item(),
         -- ['<C-j>'] = cmp.mapping.select_next_item(),
