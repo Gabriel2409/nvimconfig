@@ -3,7 +3,7 @@ return {
   dependencies = 'nvim-lua/plenary.nvim',
   config = true,
   keys = { -- load the plugin only when using it's keybinding:
-    { '<leader>uU', "<cmd>lua require('undotree').toggle()<cr>", desc = 'Undo toggle tree' },
+    { '<leader>uU', "<cmd>lua require('undotree').toggle()<cr>", desc = 'Toggle Undo Tree' },
   },
 }
 -- return {
