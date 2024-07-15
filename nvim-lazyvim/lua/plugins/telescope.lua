@@ -11,7 +11,7 @@ return {
           end,
         },
       },
-      defaults = {
+      spec = {
         mappings = {
           i = {
             -- ['<C-j>'] = actions.move_selection_next,

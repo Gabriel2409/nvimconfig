@@ -12,7 +12,7 @@ return {
   {
     'folke/which-key.nvim',
     opts = {
-      defaults = {
+      spec = {
         mode = { 'n' },
         ['<leader>o'] = { name = '+overseer' },
       },
