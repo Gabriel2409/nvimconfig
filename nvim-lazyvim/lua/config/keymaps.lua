@@ -9,7 +9,8 @@ local delkeymap = vim.keymap.del
 keymap('n', 'Y', 'y$', { noremap = true, silent = true })
 
 -- copy content of unnamed register to system clipboard
-vim.api.nvim_set_keymap('n', '<leader>y', [[:let @+ =@"<CR>]], { noremap = true, desc = 'Change directory' })
+vim.api.nvim_set_keymap('n', '<leader>y', [[:let @+ =@"<CR>]],
+  { noremap = true, desc = 'Cp Unnamed Reg to System Clipboard' })
 
 -- remap ctrl c to copy to system clipboard
 keymap('n', '<C-c>', '"+yy', { noremap = true, silent = true })
@@ -24,20 +25,7 @@ keymap('n', '<c-s>', '<cmd>noautocmd w<CR>', {})
 keymap('i', '<c-s>', '<esc><cmd>noautocmd w<CR>a', {})
 
 -- Telescope
-keymap(
-  'n',
-  '<C-p>',
-  -- ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  ":lua require('telescope.builtin').find_files({find_command={'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
-  { noremap = true, silent = true }
-)
 
--- keymap(
---   "n",
---   "<C-b>",
---   ":lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr><esc>",
---   { noremap = true, silent = true }
--- )
 
 -- Format
 keymap('n', '<A-S-f>', '<cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
