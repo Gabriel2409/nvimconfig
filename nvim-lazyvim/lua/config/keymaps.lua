@@ -24,8 +24,6 @@ keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 keymap('n', '<c-s>', '<cmd>noautocmd w<CR>', {})
 keymap('i', '<c-s>', '<esc><cmd>noautocmd w<CR>a', {})
 
--- Telescope
-
 
 -- Format
 keymap('n', '<A-S-f>', '<cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
@@ -37,15 +35,9 @@ vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 
 -- TODO
 -- fix tabout
---
 
--- tmux integration
 
-keymap('n', '<c-h>', '<cmd>TmuxNavigateLeft<cr>', { noremap = true, silent = true })
-keymap('n', '<c-l>', '<cmd>TmuxNavigateRight<cr>', { noremap = true, silent = true })
-keymap('n', '<c-j>', '<cmd>TmuxNavigateDown<cr>', { noremap = true, silent = true })
-keymap('n', '<c-k>', '<cmd>TmuxNavigateUp<cr>', { noremap = true, silent = true })
-
+-- TODO: check if still relevant
 -- open neotree directory for current file
 keymap(
   'n',
@@ -54,6 +46,7 @@ keymap(
   { desc = 'Open current file dir', noremap = true, silent = true }
 )
 
+-- TODO: check if still relevant
 -- change directory (helps when searching with telescope within library)
 vim.api.nvim_set_keymap(
   'n',
