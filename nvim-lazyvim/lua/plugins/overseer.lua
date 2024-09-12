@@ -6,7 +6,7 @@ return {
     end,
     keys = {
       { mode = { 'n' }, '<leader>oe', '<cmd>OverseerToggle<CR>', desc = 'Overseer explorer' },
-      { mode = { 'n' }, '<leader>or', '<cmd>OverseerRun<CR>', desc = 'Run task' },
+      { mode = { 'n' }, '<leader>or', '<cmd>OverseerRun<CR>',    desc = 'Run task' },
     },
   },
   {
