@@ -34,6 +34,12 @@ return {
       },
       {
         mode = { 'n' },
+        '<leader><leader>',
+        "<cmd>lua require('telescope.builtin').find_files({find_command={'rg', '--files', '--hidden', '--no-ignore', '-g', '!.git' }})<cr>",
+        desc = 'Find files (no gitignore)',
+      },
+      {
+        mode = { 'n' },
         '<leader>p',
         '<cmd>lua require("telescope.builtin").fd({cwd = vim.fn.expand("%:p:h")})<cr>',
         desc = 'Find files current path',
