@@ -1,3 +1,4 @@
+return {}
 -- local actions = require 'telescope.actions'
 --
 -- return {
