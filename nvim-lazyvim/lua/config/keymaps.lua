@@ -53,3 +53,10 @@ delkeymap('n', '<S-h>')
 delkeymap('n', '<S-l>')
 delkeymap('n', 'n')
 delkeymap('n', 'N')
+
+
+-- experiments
+keymap('n', '<S-l>', '$', {})
+keymap('v', '<S-l>', '$', {})
+keymap('n', '<S-h>', '^', {})
+keymap('v', '<S-h>', '^', {})
