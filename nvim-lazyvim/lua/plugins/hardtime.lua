@@ -7,7 +7,7 @@
 -- ]])
 --
 -- very hacky because plugin does not expose status
-local isHardtimeEnabled = true
+local isHardtimeEnabled = false
 function Toggle_hardtime()
   require('hardtime').toggle()
   local Util = require 'lazy.core.util'
@@ -28,7 +28,7 @@ return {
     dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
     opts = {},
     config = function()
-      require('hardtime').setup { enabled = false }
+      require('hardtime').setup { enabled = isHardtimeEnabled }
     end,
     keys = {
       {
