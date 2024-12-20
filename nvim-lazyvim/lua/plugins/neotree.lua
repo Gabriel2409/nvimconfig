@@ -9,12 +9,5 @@ return {
         },
       },
     },
-    window = {
-      position = 'left',
-      mappings = {
-        ['h'] = 'close_node',
-        ['l'] = 'open',
-      },
-    },
   },
 }

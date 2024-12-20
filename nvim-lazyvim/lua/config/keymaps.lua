@@ -38,15 +38,6 @@ vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 
 
 -- TODO: check if still relevant
--- open neotree directory for current file
-keymap(
-  'n',
-  '<leader>E',
-  '<cmd>Neotree reveal_force_cwd<cr>',
-  { desc = 'Open current file dir', noremap = true, silent = true }
-)
-
--- TODO: check if still relevant
 -- change directory (helps when searching with telescope within library)
 vim.api.nvim_set_keymap(
   'n',
@@ -62,3 +53,10 @@ delkeymap('n', '<S-h>')
 delkeymap('n', '<S-l>')
 delkeymap('n', 'n')
 delkeymap('n', 'N')
+
+
+-- experiments
+keymap('n', '<S-l>', '$', {})
+keymap('v', '<S-l>', '$', {})
+keymap('n', '<S-h>', '^', {})
+keymap('v', '<S-h>', '^', {})

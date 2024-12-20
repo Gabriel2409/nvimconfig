@@ -11,3 +11,7 @@ opt.formatoptions = 'jcqlnt'
 opt.scrolloff = 8                              -- Lines of context
 opt.spelllang = { 'en', 'fr' }
 opt.swapfile = false
+
+
+-- disable animations
+vim.g.snacks_animate = false
