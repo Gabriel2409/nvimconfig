@@ -1,8 +1,9 @@
 return {
   {
     'akinsho/bufferline.nvim',
-    config = function()
-      require('bufferline').setup { options = { mode = 'tabs' } }
-    end,
+    enabled = false,
+    -- config = function()
+    --   require('bufferline').setup { options = { mode = 'tabs' } }
+    -- end,
   },
 }
