@@ -2,6 +2,7 @@
 return {
   -- disabled for now as it seems to conflict with copilot
   'echasnovski/mini.pairs',
+  enabled = false,
   opts = {
     mappings = {
       ['('] = { action = 'open', pair = '()', neigh_pattern = '.[%W]' },
