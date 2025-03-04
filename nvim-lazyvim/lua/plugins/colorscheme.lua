@@ -4,7 +4,7 @@ return {
   { 'catppuccin/nvim' },
   { 'sainnhe/sonokai' },
 
-  -- Configure LazyVim to load gruvbox
+  -- Configure LazyVim to load catpuccin
   {
     'LazyVim/LazyVim',
     opts = {
