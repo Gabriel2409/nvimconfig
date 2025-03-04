@@ -9,8 +9,12 @@ local delkeymap = vim.keymap.del
 keymap('n', 'Y', 'y$', { noremap = true, silent = true })
 
 -- copy content of unnamed register to system clipboard
-vim.api.nvim_set_keymap('n', '<leader>y', [[:let @+ =@"<CR>]],
-  { noremap = true, desc = 'Cp Unnamed Reg to System Clipboard' })
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>y',
+  [[:let @+ =@"<CR>]],
+  { noremap = true, desc = 'Cp Unnamed Reg to System Clipboard' }
+)
 
 -- remap ctrl c to copy to system clipboard
 keymap('n', '<C-c>', '"+yy', { noremap = true, silent = true })
@@ -24,6 +28,8 @@ keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 keymap('n', '<c-s>', '<cmd>noautocmd w<CR>', {})
 keymap('i', '<c-s>', '<esc><cmd>noautocmd w<CR>a', {})
 
+-- ctrl p to find files
+keymap('n', '<c-p>', '<cmd>lua Snacks.picker.files()<CR>', {})
 
 -- Format
 keymap('n', '<A-S-f>', '<cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
@@ -35,7 +41,6 @@ vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 
 -- TODO
 -- fix tabout
-
 
 -- TODO: check if still relevant
 -- change directory (helps when searching with telescope within library)
@@ -53,7 +58,6 @@ delkeymap('n', '<S-h>')
 delkeymap('n', '<S-l>')
 delkeymap('n', 'n')
 delkeymap('n', 'N')
-
 
 -- experiments
 keymap('n', '<S-l>', '$', {})
