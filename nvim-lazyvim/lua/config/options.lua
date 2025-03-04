@@ -14,8 +14,3 @@ opt.swapfile = false
 
 -- disable animations
 vim.g.snacks_animate = false
-
--- point to neovim venv - for molten
--- following dependencies are installed
--- pip install pynvim jupyter_client cairosvg plotly kaleido pnglatex pyperclip
-vim.g.python3_host_prog = vim.fn.expand '~/.virtualenvs/neovim/bin/python3'
