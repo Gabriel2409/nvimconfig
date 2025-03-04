@@ -1,13 +1,13 @@
 # TODO
+- REINSTALL BOB WITH PACMAN
 
-- jupynium fix
 - autopair fix
 
 # Install neovim on WSL
 
 ## WSL install
 
-Complete guide: https://lecrabeinfo.net/installer-wsl-windows-subsystem-for-linux-sur-windows-10.html
+Complete guide: <https://lecrabeinfo.net/installer-wsl-windows-subsystem-for-linux-sur-windows-10.html>
 
 Summary:
 
@@ -15,14 +15,14 @@ Summary:
   - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
 - restart
-- download update package of linux kernel here from https://docs.microsoft.com/fr-fr/windows/wsl/install-manual
+- download update package of linux kernel here from <https://docs.microsoft.com/fr-fr/windows/wsl/install-manual>
 - in powershell as admin: `wsl --set-default-version 2`
 
 - install ubuntu via windows store
 - launch ubuntu from start folder to install it. This will open wsl and you can define default user and password
 
 - download windows terminal from windows store
-- Install a nerd font from https://www.nerdfonts.com/font-downloads (choose one, unzip and double click one one to install it)
+- Install a nerd font from <https://www.nerdfonts.com/font-downloads> (choose one, unzip and double click one one to install it)
 - in windows terminal click on arrow next to tab, go to settings, and modify appearance of ubuntu to use this font
 
 - Note: in case of Temporary failure in name resolution, you can modify /etc/resolv.conf
@@ -45,7 +45,7 @@ Then run `sudo chattr +i /etc/resolv.conf` to prevent windows from deleting the 
 Then exit wsl and run `wsl --shutdown` in powershell BEFORE reconnecting
 
 - In case of SSL certs problems (for ex when dealing with zscaler):
-  https://github.com/microsoft/WSL/issues/3161
+  <https://github.com/microsoft/WSL/issues/3161>
 
 ```
 Go to Manage User Certificates >  Trusted Root Certification Authorities > Certificates > Open the root CA you are interesed in
@@ -91,7 +91,7 @@ set colored-completion-prefix on
 
 ## Install ssh key for github
 
-see https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54
+see <https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54>
 
 - generate ssh key: `ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/github_ed25519 -C "youremail.com"`
 - create `.ssh/config` file and paste
@@ -116,7 +116,7 @@ Alternatively, you can close and reopen terminal
 
 ### npm and node
 
-Complete guide to install nvm: https://github.com/nvm-sh/nvm
+Complete guide to install nvm: <https://github.com/nvm-sh/nvm>
 
 - summary:
   - run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` (this should update your .bashrc file)
@@ -126,7 +126,7 @@ Complete guide to install nvm: https://github.com/nvm-sh/nvm
 
 ### Install go
 
-- go to https://go.dev/doc/install to see current version
+- go to <https://go.dev/doc/install> to see current version
 - run `curl -OL https://golang.org/dl/go1.18.4.linux-amd64.tar.gz` (replace with your version)
 - run `rm -rf ~/go && tar -C ~/ -xzf go1.18.4.linux-amd64.tar.gz` to install new version
 - Add this to your .bashrc:
@@ -142,17 +142,19 @@ export PATH=$PATH:$GOBIN
 
 ### Install pyenv
 
-Complete guide to pyenv: https://github.com/pyenv/pyenv#getting-pyenv
+Complete guide to pyenv: <https://github.com/pyenv/pyenv#getting-pyenv>
 
 - Summary:
   - `git clone https://github.com/pyenv/pyenv.git ~/.pyenv`
   - optional: `cd ~/.pyenv && src/configure && make -C src`
   - add this to .bashrc:
+
   ```bash
   export PYENV_ROOT="$HOME/.pyenv"
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
   ```
+
   - run `pyenv install 3.9.12`
   - run `pyenv global 3.9.12`
 
@@ -165,7 +167,7 @@ cert=/etc/ssl/certs/zscaler-root-ca.pem
 
 ### Install pipx
 
-https://github.com/pypa/pipx
+<https://github.com/pypa/pipx>
 
 - very clean way to have global python packages available in the shell
 
@@ -178,7 +180,7 @@ pipx ensurepath
 - I added in `.bashrc`: `export PIPX_DEFAULT_PYTHON=python` to make sure that it uses
   the python version exposed by pyenv
 
-A utility I like to have installed globally is cookiecutter: see https://github.com/cookiecutter/cookiecutter
+A utility I like to have installed globally is cookiecutter: see <https://github.com/cookiecutter/cookiecutter>
 
 Either install it with pipx: `pipx install cookiecutter` and use it with `cookiecutter ...` or use `pipx run cookiecutter ...` to run it even if it is not installed
 
@@ -203,8 +205,8 @@ then in ~./bashrc: `export PATH="$HOME/.cargo/bin:$PATH"`
 
 ### Install tmux
 
-- great way to get started: https://www.youtube.com/watch?v=DzNmUNvnB04
-- https://tmuxcheatsheet.com/
+- great way to get started: <https://www.youtube.com/watch?v=DzNmUNvnB04>
+- <https://tmuxcheatsheet.com/>
 
 In .bashrc, add:
 `export XDG_CONFIG_HOME=$HOME/.config`
@@ -244,7 +246,7 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ## System clipboard for wsl
 
-- add copy to system clipboard: you need to install win32yank and xclip: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+- add copy to system clipboard: you need to install win32yank and xclip: <https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl>
 
   - `sudo apt install xclip`
 
@@ -257,11 +259,11 @@ run '~/.tmux/plugins/tpm/tpm'
 
 - You only need xclip: `sudo apt install xclip`
 
-## Install neovim:
+## Install neovim
 
 ### Hard way
 
-- Complete guide: https://github.com/neovim/neovim/wiki/Installing-Neovim
+- Complete guide: <https://github.com/neovim/neovim/wiki/Installing-Neovim>
 - `sudo add-apt-repository ppa:neovim-ppa/unstable`
 - `sudo apt update`
 - `sudo apt install neovim`
@@ -269,7 +271,7 @@ run '~/.tmux/plugins/tpm/tpm'
 
 ### Better way
 
-- Use Bob: https://github.com/MordechaiHadad/bob: `cargo install bob-nvim`
+- Use Bob: <https://github.com/MordechaiHadad/bob>: `cargo install bob-nvim`
 - then run `bob install stable` and `bob use stable` (or `nightly`)
 
 then in ~/.bashrc:
@@ -337,7 +339,7 @@ webdriver.Firefox()
 
 ### Good rust plugins for better terminal experience
 
-- see https://www.youtube.com/watch?v=dFkGNe4oaKk
+- see <https://www.youtube.com/watch?v=dFkGNe4oaKk>
 
 - `cargo install bat`: drop-in replacement for `cat`: `https://github.com/sharkdp/bat`
 - `cargo install du-dust`: better `du`: `https://github.com/bootandy/dust`
@@ -349,9 +351,9 @@ webdriver.Firefox()
 
 libraries installed by Mason and nvimcom must be available.
 
-https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work
+<https://stackoverflow.com/questions/15170399/change-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work>
 For ex, adding the line `.libPaths(c(.libPaths(), "~/R/x86_64-pc-linux-gnu-library/4.2"))` to .Rprofile can work
 
-## Helper cmd lines:
+## Helper cmd lines
 
 - kill connection: `sudo lsof -t -i tcp:<port> | xargs kill -9`
