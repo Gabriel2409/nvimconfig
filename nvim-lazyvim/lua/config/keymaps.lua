@@ -5,9 +5,6 @@
 local keymap = vim.keymap.set
 local delkeymap = vim.keymap.del
 
--- better yank
-keymap('n', 'Y', 'y$', { noremap = true, silent = true })
-
 -- copy content of unnamed register to system clipboard
 vim.api.nvim_set_keymap(
   'n',
@@ -42,13 +39,19 @@ vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
 -- TODO
 -- fix tabout
 
--- TODO: check if still relevant
--- change directory (helps when searching with telescope within library)
+-- search in current dir, useful when digging in libraries or venv
 vim.api.nvim_set_keymap(
   'n',
-  '<leader>se',
-  [[:lcd <C-r>=expand('%:h')<CR><CR>]],
-  { noremap = true, desc = 'Change directory' }
+  '<leader>fL',
+  "<cmd>lua Snacks.picker.files({dirs={vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h')}, hidden=true, ignored=true})<cr>",
+  { noremap = true, desc = 'Find files in currently selected dir' }
+)
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>sL',
+  "<cmd>lua Snacks.picker.grep({dirs={vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':h')}, hidden=true, ignored=true})<cr>",
+  { noremap = true, desc = 'Grep in currently selected dir' }
 )
 
 vim.cmd [[cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%']]
