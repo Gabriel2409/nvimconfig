@@ -6,8 +6,15 @@ return {
     {
       mode = { 'n' },
       '<leader>gD',
-      '<cmd>DiffviewOpen<cr>',
-      desc = 'DiffviewOpen',
+      function()
+        local arg = vim.fn.input 'DiffviewOpen'
+        if arg ~= '' then
+          vim.cmd('DiffviewOpen ' .. arg)
+        else
+          vim.cmd 'DiffviewOpen'
+        end
+      end,
+      desc = 'DiffviewOpen with prompt',
     },
   },
 }
