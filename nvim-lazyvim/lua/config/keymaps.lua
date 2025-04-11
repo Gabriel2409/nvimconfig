@@ -67,3 +67,14 @@ keymap('n', '<S-l>', '$', {})
 keymap('v', '<S-l>', '$', {})
 keymap('n', '<S-h>', '^', {})
 keymap('v', '<S-h>', '^', {})
+
+vim.api.nvim_set_keymap(
+  'n',
+  '<leader>"',
+  '<cmd>lua Snacks.picker.registers()<cr>',
+  { noremap = true, desc = 'Registers' }
+)
+
+-- macros
+-- add equal sign with current element next to it
+vim.fn.setreg('e', ':s/\\([^ \\n\\t].*\\)/\\1=\\1\nj')
