@@ -1,9 +1,19 @@
 -- generate your key:
 -- echo "mykey" | gpg --encrypt --recipient mymail.com > secrets/mykey.gpg
+-- accept change: ga. Reject: gr. Launch prompt Ctrl s.
+vim.cmd [[cab cc CodeCompanion]]
 return {
-
   {
     'olimorris/codecompanion.nvim',
+    keys = {
+
+      {
+        mode = { 'n' },
+        '<leader>C',
+        '<cmd>CodeCompanionChat Toggle<cr>',
+        desc = 'Code Companion Chat',
+      },
+    },
     opts = {
       adapters = {
         anthropic = function()
