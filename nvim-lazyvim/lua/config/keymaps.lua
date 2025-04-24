@@ -75,6 +75,45 @@ vim.api.nvim_set_keymap(
   { noremap = true, desc = 'Registers' }
 )
 
+-- dap keymaps
+vim.api.nvim_set_keymap(
+  'n',
+  '<localleader>b',
+  '<cmd>lua require("dap").toggle_breakpoint()<cr>',
+  { noremap = true, desc = 'toggle breakpoint' }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<localleader>c',
+  '<cmd>lua require("dap").continue()<cr>',
+  { noremap = true, desc = 'dap continue' }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<localleader>s',
+  '<cmd>lua require("dap").step_over()<cr>',
+  { noremap = true, desc = 'dap step over' }
+)
+
+-- zoom keymaps
+vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>lua Snacks.zen.zen()<cr>', { noremap = true, desc = 'zen mode' })
+vim.api.nvim_set_keymap('n', '<c-w>z', '<cmd>lua Snacks.zen.zen()<cr>', { noremap = true, desc = 'zen mode' })
+
+-- toggle breakpoint on click instead of fold
+
+-- vim.keymap.set('n', '<LeftMouse>', function()
+--   local mouse_pos = vim.fn.getmousepos()
+--   if mouse_pos.column <= 1
+--     local current_pos = vim.api.nvim_win_get_cursor(0)
+--
+--     vim.api.nvim_win_set_cursor(0,{mouse_pos.line, current_pos[2]})
+--     require('dap').toggle_breakpoint()
+--     return true
+--   else
+--     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<LeftMouse>', true, false, true), 'n', false)
+--   end
+-- end, {})
+
 -- macros
 -- add equal sign with current element next to it
 vim.fn.setreg('e', ':s/\\([^ \\n\\t].*\\)/\\1=\\1\nj')
