@@ -11,7 +11,9 @@ return {
       desc = 'Oil',
     },
   },
-  opts = {},
+  opts = {
+    default_file_explorer = false,
+  },
   -- Optional dependencies
   lazy = false,
 }
