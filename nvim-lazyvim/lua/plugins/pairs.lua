@@ -1,7 +1,7 @@
 -- TODO investigate patterns
 return {
   -- disabled for now as it seems to conflict with copilot
-  'echasnovski/mini.pairs',
+  'nvim-mini/mini.pairs',
   enabled = false,
   opts = {
     mappings = {

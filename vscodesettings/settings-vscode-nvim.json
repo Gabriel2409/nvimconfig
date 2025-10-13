@@ -1,4 +1,5 @@
 {
+	"terminal.integrated.profiles.linux": { "zsh": { "path": "/usr/bin/zsh", "args": ["-i"] } },
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
