@@ -5,7 +5,7 @@ return {
   keys = {
     {
       mode = { 'n' },
-      '<leader>gD',
+      '<leader>gv',
       function()
         local arg = vim.fn.input 'DiffviewOpen'
         if arg ~= '' then
