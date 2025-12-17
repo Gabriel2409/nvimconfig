@@ -32,10 +32,6 @@ keymap('n', '<c-p>', '<cmd>lua Snacks.picker.files()<CR>', {})
 keymap('n', '<A-S-f>', '<cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
 keymap('i', '<A-S-f>', '<esc><cmd>lua vim.lsp.buf.format({timeout_ms = 2000})<cr>', { noremap = true, silent = true })
 
--- extra surround keymaps
-vim.api.nvim_set_keymap('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { noremap = true })
-vim.api.nvim_set_keymap('n', 'yss', 'ys_', { noremap = false })
-
 -- TODO
 -- fix tabout
 
