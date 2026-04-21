@@ -47,18 +47,20 @@ Then exit wsl and run `wsl --shutdown` in powershell BEFORE reconnecting
 - In case of SSL certs problems (for ex when dealing with zscaler):
   <https://github.com/microsoft/WSL/issues/3161>
 
-```
-Go to Manage User Certificates >  Trusted Root Certification Authorities > Certificates > Open the root CA you are interesed in
-> Details > Copy To File > Base64 X.509
+## certs
+- Press `Win + R` to open the Run dialog, type `certmgr.msc`, and press Enter. This will open the Certificate Manager.
+- Go to `Trusted Root Certification > Certificates` and double click on `Zscaler Root CA`
+- Export it in the `DER encoded binary X.509 (.CER)` format and place it in WSL (for ex in your home folder).
+- Convert it to pem: `openssl x509 -inform DER -in <path_to_certificate.cer> -out zscaler-root-ca.pem` (replace `<path_to_certificate.cer>`)
+- Move it to `/etc/ssl/certs/zscaler-root-ca.pem`
+- Run `sudo update-ca-certificates`
+Note: for some, instead, 
+`openssl x509 -inform DER -in <path_to_certificate.cer> -out zscaler-root-ca.crt`
+and move both crt and cer in `/usr/local/share/ca-certificates/` before running `sudo update-ca-certificates`
+If it still does not work, set the following environment variables:
+- `export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt`
+- `export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`.
 
-Copy that .cer file to /usr/local/share/ca-certificates in WSL2
-Run
-sudo openssl x509 -inform PEM -in xxx.cer -out xxx.crt
-sudo update-ca-certificates
-
-Verify:
-ls /etc/ssl/certs | grep xxx
-```
 
 ## qol bash
 
