@@ -24,6 +24,7 @@
     "lazyvim.plugins.extras.test.core",
     "plugins.extras.editor.timber",
     "plugins.extras.mine.diagtools",
+    "plugins.extras.mine.smartsub",
     "plugins.extras.test.neotest-python"
   ],
   "install_version": 7,
